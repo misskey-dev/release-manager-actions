@@ -1,4 +1,4 @@
-name: "Release Manager"
+name: "Release Manager [Dispatch]"
 
 on:
   workflow_dispatch:
@@ -38,8 +38,8 @@ jobs:
       main: ${{ github.ref_name }}
       user: LuckyBeast
 
-  dispatch-prerelease:
-    uses: ./.github/workflows/dispatch-prerelease.yml
+  create-prerelease:
+    uses: ./.github/workflows/create-prerelease.yml
     needs: get-pr
     if: ${{ needs.get-pr.outputs.pr_number != '' && inputs.merge != true  }}
     with:

@@ -1,3 +1,5 @@
+name: "Release Manager/Go Merge"
+
 on:
   workflow_call:
     inputs:
@@ -21,8 +23,6 @@ permissions:
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-name: "Release Manager"
 
 jobs:
   merge:

@@ -1,4 +1,4 @@
-name: "Dispatch Pre-release"
+name: "Release Manager/Create Pre-release"
 
 on:
   workflow_call:
@@ -21,8 +21,8 @@ env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
-  dispatch-prerelease:
-    name: "Dispatch Pre-release"
+  create-prerelease:
+    name: "Create Pre-release"
     runs-on: ubuntu-latest
     if: ${{ inputs.pr_number != '' }}
     # 開いているリリースのパッチバージョンを上げる
