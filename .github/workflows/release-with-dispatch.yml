@@ -5,7 +5,7 @@ on:
     inputs:
       merge:
         type: boolean
-        description: 'Merge release branch'
+        description: 'MERGE RELEASE BRANCH TO MAIN'
         default: false
 
 env:
@@ -31,7 +31,7 @@ jobs:
 
   merge:
     uses: ./.github/workflows/merge.yml
-    needs: Checkout PR
+    needs: get-pr
     if: ${{ needs.get-pr.outputs.pr_number != '' && inputs.merge == true }}
     with:
       pr_number: ${{ needs.get-pr.outputs.pr_number }}
