@@ -46,7 +46,7 @@ jobs:
         with:
           version: ${{ steps.v.outputs.target_version }}
 
-      # release/ブランチとタグを作成
+      # commit, push
       - name: Commit version
         run: |
           if [ -n "$(git status --porcelain)" ]; then
@@ -54,7 +54,7 @@ jobs:
             git push origin HEAD:release/${{ steps.v.outputs.target_version }}
           fi
 
-      - name: Try Merge
+      - name: Try merge
         run: |
           gh pr merge ${{ inputs.pr_number }} --merge --auto
 
