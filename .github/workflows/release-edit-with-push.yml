@@ -25,7 +25,7 @@ jobs:
         run: |
           echo "pr_number=$(gh pr list --limit 1 --head "${{ github.ref_name }}" --json number  --jq '.[] | .number')" >> $GITHUB_OUTPUT
         id: get_pr
-      - name: Get Target Version
+      - name: Get target version
         uses: ./.github/actions/get-target-version
         id: v
       # CHANGELOG.mdの内容を取得

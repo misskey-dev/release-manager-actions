@@ -28,13 +28,13 @@ jobs:
     # 開いているリリースのパッチバージョンを上げる
     steps:
       - uses: actions/checkout@v4
-      - name: get_pr
+      - name: Initialize
         uses: ./.github/actions/checkout-pr
         with:
           pr_number: ${{ inputs.pr_number }}
           user: ${{ inputs.user }}
         id: get_pr
-      - name: Get Target Version
+      - name: Get target version
         uses: ./.github/actions/get-target-version
         id: v
       # バージョンをインクリメント
@@ -70,7 +70,7 @@ jobs:
         run: |
           jq '.version = "${{ steps.release_version.outputs.result }}"' package.json > package.json.tmp && mv package.json.tmp package.json
           jq '.version = "${{ steps.release_version.outputs.result }}"' packages/misskey-js/package.json > packages/misskey-js/package.json.tmp && mv packages/misskey-js/package.json.tmp packages/misskey-js/package.json
-      # release/ブランチとタグを作成
+      # release/ブランチにpush、タグを作成
       - name: Commit version
         run: |
           git commit -am "Bump version to ${{ steps.release_version.outputs.result }}"

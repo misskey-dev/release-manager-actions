@@ -31,7 +31,7 @@ jobs:
 
   merge:
     uses: ./.github/workflows/merge.yml
-    needs: get-pr
+    needs: Checkout PR
     if: ${{ needs.get-pr.outputs.pr_number != '' && inputs.merge == true }}
     with:
       pr_number: ${{ needs.get-pr.outputs.pr_number }}
