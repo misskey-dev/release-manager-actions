@@ -1,9 +1,12 @@
+name: "Get changelog"
+description: "Get changelog from CHANGELOG.md"
 inputs:
   version:
-    type: string
+    description: "Version to get changelog"
     required: true
 outputs:
   result:
+    description: "changelog"
     value: ${{ steps.changelog.outputs.changelog }}
 runs:
   using: "composite"

@@ -1,6 +1,8 @@
+name: "Rewrite package.json"
+description: "Rewrite package.json with specified version"
 inputs:
   version:
-    type: string
+    description: "Version to rewrite"
     required: true
 runs:
   using: "composite"

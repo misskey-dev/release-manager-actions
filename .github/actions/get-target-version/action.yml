@@ -1,7 +1,11 @@
+name: "Get target version"
+description: "Get current version and target version from package.json"
 outputs:
   current_version:
+    description: "current version"
     value: ${{ steps.get_current_version.outputs.current_version }}
   target_version:
+    description: "target version"
     value: ${{ steps.next_target_version.outputs.result }}
 runs:
   using: "composite"

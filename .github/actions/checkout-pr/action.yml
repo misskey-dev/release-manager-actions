@@ -1,16 +1,18 @@
+name: "Initialize"
+description: "Checkout PR"
 inputs:
   pr_number:
-    type: string
     description: "PR number"
     required: true
   user:
-    type: string
     description: "user name"
     required: true
 outputs:
   pr_is_draft:
+    description: "PR is draft"
     value: ${{ steps.get_pr.outputs.pr_is_draft }}
   pr_head_ref:
+    description: "PR head ref"
     value: ${{ steps.get_pr.outputs.pr_head_ref }}
 runs:
   using: "composite"
