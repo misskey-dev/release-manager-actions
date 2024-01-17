@@ -54,6 +54,32 @@ jobs:
             git push origin HEAD:release/${{ steps.v.outputs.target_version }}
           fi
 
+      # rulesetを切り替え
+      - name: Switch rulesets
+        uses: actions/script@v7
+        env:
+          RULESET_ID_WITHIN_RELEASE: ${{ vars.RULESET_ID_WITHIN_RELEASE }}
+          RULESET_ID_OUT_OF_RELEASE: ${{ vars.RULESET_ID_OUT_OF_RELEASE }}
+        with:
+          script: |
+            if (process.env.RULESET_ID_WITHIN_RELEASE) {
+              github.rest.repos.updateRepoRuleset({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                ruleset_id: process.env.RULESET_ID_WITHIN_RELEASE,
+                enforcement: 'disabled'
+              });
+            }
+            if (process.env.RULESET_ID_OUT_OF_RELEASE) {
+              github.rest.repos.updateRepoRuleset({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                ruleset_id: process.env.RULESET_ID_OUT_OF_RELEASE,
+                enforcement: 'enabled'
+              });
+            }
+          result-encoding: string
+
       - name: Try merge
         run: |
           gh pr merge ${{ inputs.pr_number }} --merge --auto
