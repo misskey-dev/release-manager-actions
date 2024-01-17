@@ -92,3 +92,28 @@ jobs:
       - name: Create PR
         run: |
           gh pr create --draft --title "Release: ${{ steps.target_version.outputs.result }}" --body "${{ steps.changelog.outputs.changelog }}" --head release/${{ steps.target_version.outputs.result }} --base ${{ github.ref_name }}
+      # rulesetを切り替え
+      - name: Switch rulesets
+        uses: actions/script@v7
+        env:
+          RULESET_ID_WITHIN_RELEASE: ${{ vars.RULESET_ID_WITHIN_RELEASE }}
+          RULESET_ID_OUT_OF_RELEASE: ${{ vars.RULESET_ID_OUT_OF_RELEASE }}
+        with:
+          script: |
+            if (process.env.RULESET_ID_WITHIN_RELEASE) {
+              github.rest.repos.updateRepoRuleset({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                ruleset_id: process.env.RULESET_ID_WITHIN_RELEASE,
+                enforcement: 'enabled'
+              });
+            }
+            if (process.env.RULESET_ID_OUT_OF_RELEASE) {
+              github.rest.repos.updateRepoRuleset({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                ruleset_id: process.env.RULESET_ID_OUT_OF_RELEASE,
+                enforcement: 'disabled'
+              });
+            }
+          result-encoding: string
