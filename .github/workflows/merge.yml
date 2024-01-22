@@ -68,31 +68,28 @@ jobs:
         with:
           app-id: ${{ secrets.RULESET_EDIT_APP_ID }}
           private-key: ${{ secrets.RULESET_EDIT_APP_PRIVATE_KEY }}
-      - name: Switch rulesets
-        uses: actions/script@v7
+      - name: Enable the ruleset
+        uses: octokit/request-action@v2.x
+        if: steps.app-token.outputs.token && vars.RULESET_ID_OUT_OF_RELEASE
         env:
-          RULESET_ID_WITHIN_RELEASE: ${{ vars.RULESET_ID_WITHIN_RELEASE }}
-          RULESET_ID_OUT_OF_RELEASE: ${{ vars.RULESET_ID_OUT_OF_RELEASE }}
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
         with:
-          github-token: ${{ steps.app-token.outputs.token }}
-          script: |
-            if (process.env.RULESET_ID_WITHIN_RELEASE) {
-              github.rest.repos.updateRepoRuleset({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                ruleset_id: process.env.RULESET_ID_WITHIN_RELEASE,
-                enforcement: 'disabled'
-              });
-            }
-            if (process.env.RULESET_ID_OUT_OF_RELEASE) {
-              github.rest.repos.updateRepoRuleset({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                ruleset_id: process.env.RULESET_ID_OUT_OF_RELEASE,
-                enforcement: 'enabled'
-              });
-            }
-          result-encoding: string
+          route: PUT /repos/{repository}/rulesets/{ruleset_id}
+          repository: ${{ github.repository }}
+          ruleset_id: ${{ vars.RULESET_ID_OUT_OF_RELEASE }}
+          enforcement: active
+      - name: Disable the ruleset
+        uses: octokit/request-action@v2.x
+        if: steps.app-token.outputs.token && vars.RULESET_ID_WITHIN_RELEASE
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        with:
+          route: PUT /repos/{repository}/rulesets/{ruleset_id}
+          repository: ${{ github.repository }}
+          ruleset_id: ${{ vars.RULESET_ID_WITHIN_RELEASE }}
+          enforcement: disabled
 
       - name: Try merge
         run: |
