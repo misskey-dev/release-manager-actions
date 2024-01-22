@@ -49,21 +49,6 @@ jobs:
         uses: ./.github/actions/get-target-version
         id: v
 
-      # バージョンをpackage.jsonに書き込み
-      - name: Write version
-        uses: ./.github/actions/rewrite-package-json
-        with:
-          version: ${{ steps.v.outputs.target_version }}
-          package_jsons: ${{ inputs.package_jsons_to_rewrite }}
-
-      # commit, push
-      - name: Commit version
-        run: |
-          if [ -n "$(git status --porcelain)" ]; then
-            git commit -am "[skip ci] Release: ${{ steps.v.outputs.target_version }}"
-            git push origin HEAD:release/${{ steps.v.outputs.target_version }}
-          fi
-
       # rulesetを切り替え
       - uses: actions/create-github-app-token@v1
         id: app-token
@@ -93,6 +78,65 @@ jobs:
           repository: ${{ github.repository }}
           ruleset_id: ${{ vars.RULESET_ID_WITHIN_RELEASE }}
           enforcement: disabled
+
+      - name: Check Mergeable
+        uses: actions/script@v7
+        env:
+          pr_number: ${{ inputs.pr_number }}
+        with:
+          script: |
+            const pr = await github.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: process.env.pr_number,
+            });
+            console.log(pr.data);
+            if (pr.data.mergeable !== true) {
+              throw new Error('Mergeable is not true');
+            }
+            if (pr.data.merge_state_status !== 'clean') {
+              throw new Error('Merge state status is not clean');
+            }
+
+      #region if failured
+      - name: Re-enable the ruleset
+        uses: octokit/request-action@v2.x
+        if: failure() && steps.app-token.outputs.token && vars.RULESET_ID_WITHIN_RELEASE
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        with:
+          route: PUT /repos/{repository}/rulesets/{ruleset_id}
+          repository: ${{ github.repository }}
+          ruleset_id: ${{ vars.RULESET_ID_WITHIN_RELEASE }}
+          enforcement: active
+      - name: Re-disable the ruleset
+        uses: octokit/request-action@v2.x
+        if: failure() && steps.app-token.outputs.token && vars.RULESET_ID_OUT_OF_RELEASE
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        with:
+          route: PUT /repos/{repository}/rulesets/{ruleset_id}
+          repository: ${{ github.repository }}
+          ruleset_id: ${{ vars.RULESET_ID_OUT_OF_RELEASE }}
+          enforcement: disabled
+      #endregion
+
+      # バージョンをpackage.jsonに書き込み
+      - name: Write version
+        uses: ./.github/actions/rewrite-package-json
+        with:
+          version: ${{ steps.v.outputs.target_version }}
+          package_jsons: ${{ inputs.package_jsons_to_rewrite }}
+
+      # commit, push
+      - name: Commit version
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git commit -am "[skip ci] Release: ${{ steps.v.outputs.target_version }}"
+            git push origin HEAD:release/${{ steps.v.outputs.target_version }}
+          fi
 
       - name: Try merge
         run: |
