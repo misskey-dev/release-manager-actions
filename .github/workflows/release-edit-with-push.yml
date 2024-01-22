@@ -26,11 +26,11 @@ jobs:
           echo "pr_number=$(gh pr list --limit 1 --head "${{ github.ref_name }}" --json number  --jq '.[] | .number')" >> $GITHUB_OUTPUT
         id: get_pr
       - name: Get target version
-        uses: misskey-dev/release-actions/.github/actions/get-target-version@main
+        uses: joinmisskey/release-actions/.github/actions/get-target-version@main
         id: v
       # CHANGELOG.mdの内容を取得
       - name: Get changelog
-        uses: misskey-dev/release-actions/.github/actions/get-changelog@main
+        uses: joinmisskey/release-actions/.github/actions/get-changelog@main
         with:
           version: ${{ steps.v.outputs.target_version }}
         id: changelog
