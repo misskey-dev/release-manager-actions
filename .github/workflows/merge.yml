@@ -85,7 +85,7 @@ jobs:
           pr_number: ${{ inputs.pr_number }}
         with:
           script: |
-            const pr = await github.pulls.get({
+            const pr = await github.rest.pulls.get({
               owner: context.repo.owner,
               repo: context.repo.repo,
               pull_number: process.env.pr_number,
