@@ -149,17 +149,6 @@ jobs:
             git push origin HEAD:release/${{ steps.v.outputs.target_version }}
           fi
 
-      # Merge
-      # (Retry because mergeable can unknown after push)
-      - name: Try merge
-        uses: nick-fields/retry@v2
-        with:
-          command: |
-            gh pr merge ${{ inputs.pr_number }} --merge
-          timeout_seconds: 30
-          max_attempts: 3
-          retry_wait_seconds: 5
-
       # CHANGELOG.mdの内容を取得
       - name: Get changelog
         uses: ./.github/actions/get-changelog
@@ -176,6 +165,17 @@ jobs:
       - name: Create release
         run: |
           gh release create "${{ steps.v.outputs.target_version }}" --title "${{ steps.v.outputs.target_version }}" --notes "${{ steps.changelog.outputs.changelog }}"
+
+      # Merge
+      # (Retry because mergeable can unknown after push)
+      - name: Merge PR
+        uses: nick-fields/retry@v2
+        with:
+          command: |
+            gh pr merge ${{ inputs.pr_number }} --merge
+          timeout_seconds: 30
+          max_attempts: 3
+          retry_wait_seconds: 5
 
       # Declear base branch
       - name: Declear base branch
@@ -204,7 +204,7 @@ jobs:
             -
             
         run: sed -i "1i $(echo "${CHANGES_TEMPLATE}" | sed -r 's/$/\\n/' | while IFS= read -r line; do echo -n "$line"; done)" CHANGELOG.md
-      - name: Commit version
+      - name: Update CHANGELOG.md (prepend template)
         run: |
           git commit -am "[skip ci] Update CHANGELOG.md (prepend template)"
           git push origin HEAD:${{ steps.declear-base-branch.outputs.base_branch }}
