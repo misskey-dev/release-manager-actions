@@ -173,8 +173,10 @@ jobs:
       # Declear base branch
       - name: Declear base branch
         id: declear-base-branch
+        env:
+          pr_data: ${{ steps.pr-data.outputs.data }}
         run: |
-          echo "base_branch=$(echo "${{ steps.pr-data.outputs.data }}" | jq -r '.baseRefName')" >> $GITHUB_OUTPUT
+          echo "base_branch=$(echo $pr_data | jq -r '.baseRefName')" >> $GITHUB_OUTPUT
 
       # CHANGELOG.mdにUnreleasedのテンプレートを追加
       - uses: actions/checkout@v4
