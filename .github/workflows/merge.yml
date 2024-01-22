@@ -73,8 +73,8 @@ jobs:
         env:
           RULESET_ID_WITHIN_RELEASE: ${{ vars.RULESET_ID_WITHIN_RELEASE }}
           RULESET_ID_OUT_OF_RELEASE: ${{ vars.RULESET_ID_OUT_OF_RELEASE }}
-          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
         with:
+          github-token: ${{ steps.app-token.outputs.token }}
           script: |
             if (process.env.RULESET_ID_WITHIN_RELEASE) {
               github.rest.repos.updateRepoRuleset({
