@@ -14,7 +14,7 @@ on:
       package_jsons_to_rewrite:
         type: string
         description: 'package.jsons to rewrite (json)'
-        default: '["package.json"]'
+        default: 'package.json'
 
 permissions:
   contents: write

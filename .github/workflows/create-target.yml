@@ -20,7 +20,7 @@ on:
       package_jsons_to_rewrite:
         type: string
         description: 'package.jsons to rewrite (json)'
-        default: '["package.json"]'
+        default: 'package.json'
     secrets:
       RULESET_EDIT_APP_ID:
         description: 'App ID for app to edit rulesets'

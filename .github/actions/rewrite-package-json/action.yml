@@ -6,15 +6,15 @@ inputs:
     required: true
   package_jsons:
     description: "package.jsons to rewrite"
-    default: '["package.json"]'
+    default: 'package.json'
 runs:
   using: "composite"
   steps:
     # バージョンをpackage.jsonに書き込み
     - name: Write version
       run: |
-        echo "${{ inputs.package_jsons }}"
-        echo "${{ inputs.package_jsons }}" | jq -r '.[]' | while read -r package_json; do
+        declare -a package_jsons=(${{ inputs.package_jsons }})
+        for package_json in ${package_jsons[@]}; do
           jq '.version = "${{ inputs.version }}"' "${package_json}" > "${package_json}.tmp" && mv "${package_json}.tmp" "${package_json}"
         done
       shell: bash
