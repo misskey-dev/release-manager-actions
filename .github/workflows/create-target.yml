@@ -103,7 +103,8 @@ jobs:
         with:
           app-id: ${{ secrets.RULESET_EDIT_APP_ID }}
           private-key: ${{ secrets.RULESET_EDIT_APP_PRIVATE_KEY }}
-      - run: |
+      - name: echo token
+        run: |
           echo "token=${{ steps.app-token.outputs.token }}"
       - name: Switch rulesets
         uses: actions/script@v7
