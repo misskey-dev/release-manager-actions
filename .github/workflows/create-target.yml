@@ -105,6 +105,7 @@ jobs:
           private-key: ${{ secrets.RULESET_EDIT_APP_PRIVATE_KEY }}
       - name: Switch rulesets
         uses: actions/script@v7
+        if: steps.app-token.outputs.token
         env:
           RULESET_ID_WITHIN_RELEASE: ${{ vars.RULESET_ID_WITHIN_RELEASE }}
           RULESET_ID_OUT_OF_RELEASE: ${{ vars.RULESET_ID_OUT_OF_RELEASE }}
