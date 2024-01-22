@@ -199,7 +199,7 @@ jobs:
       - name: Prepend CHANGELOG template
         env:
           CHANGES_TEMPLATE: ${{ inputs.changes_template }}
-        run: sed -i "$(sed -n '0,/^## /=' CHANGELOG.md)i $(echo "${CHANGES_TEMPLATE}" | sed -r 's/$/\\n/' | while IFS= read -r line; do echo -n "$line"; done)" CHANGELOG.md
+        run: sed -i "$(sed -n '/^## /=' CHANGELOG.md | head -1)i $(echo "${CHANGES_TEMPLATE}" | sed -r 's/$/\\n/' | while IFS= read -r line; do echo -n "$line"; done)" CHANGELOG.md
       - name: Update CHANGELOG.md (prepend template)
         run: |
           git commit -am "[skip ci] Update CHANGELOG.md (prepend template)"
