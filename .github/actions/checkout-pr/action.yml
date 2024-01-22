@@ -7,6 +7,10 @@ inputs:
   user:
     description: "user name"
     required: true
+  GH_TOKEN:
+    required: false
+    default: ${{ github.token }}
+    description: "GitHub Token"
 outputs:
   pr_is_draft:
     description: "PR is draft"
@@ -30,6 +34,8 @@ runs:
         echo "pr_is_draft=$(echo $pr_json | jq -r '.isDraft')" >> $GITHUB_OUTPUT
         echo "pr_head_ref=$(echo $pr_json | jq -r '.headRefName')" >> $GITHUB_OUTPUT
       id: get_pr
+      env:
+        GH_TOKEN: ${{ inputs.GH_TOKEN }}
       shell: bash
     - uses: actions/checkout@v4
       with:
