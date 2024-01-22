@@ -79,26 +79,34 @@ jobs:
           ruleset_id: ${{ vars.RULESET_ID_WITHIN_RELEASE }}
           enforcement: disabled
 
-      - name: Check Mergeable
+      - name: 'Check Mergeable: gh pr view'
+        id: check-mergeable-gh-pr-view
+        run: |
+          echo "data=$(gh pr view ${{ inputs.pr_number }} --json reviewDecision,isDraft,mergeStateStatus,statusCheckRollup,mergeable)" >> $GITHUB_OUTPUT
+      - name: 'Check Mergeable: compare'
         uses: actions/script@v7
         env:
-          pr_number: ${{ inputs.pr_number }}
+          pr_data: ${{ steps.check-mergeable-gh-pr-view.outputs.data }}
         with:
           script: |
-            const pr = await github.rest.pulls.get({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              pull_number: process.env.pr_number,
-            });
-            console.log(pr.data);
-            if (pr.data.mergeable !== true) {
-              throw new Error('Mergeable is not true');
+            const pr = JSON.parse(process.env.pr_data);
+            if (pr.isDraft) {
+              throw new Error('PR is draft');
             }
-            if (pr.data.merge_state_status !== 'clean') {
-              throw new Error('Merge state status is not clean');
+            if (pr.reviewDecision !== 'APPROVED') {
+              throw new Error(`reviewDecision is not APPROVED: ${pr.reviewDecision}`);
+            }
+            if (pr.mergeable !== 'MERGEABLE') {
+              throw new Error(`Not mergeable: ${pr.mergeable}`);
+            }
+            if (pr.mergeStateStatus !== 'CLEAN') {
+              throw new Error(`MergeStateStatus is not CLEAN: ${pr.mergeStateStatus}`);
+            }
+            if (statusCheckRollup.find(s => s.conclusion !== 'SUCCESS')) {
+              throw new Error('Not all status checks are success');
             }
 
-      #region if failured
+      #region if failed
       - name: Re-enable the ruleset
         uses: octokit/request-action@v2.x
         if: failure() && steps.app-token.outputs.token && vars.RULESET_ID_WITHIN_RELEASE
