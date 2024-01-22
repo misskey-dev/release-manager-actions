@@ -102,7 +102,7 @@ jobs:
             if (pr.mergeStateStatus !== 'CLEAN') {
               throw new Error(`MergeStateStatus is not CLEAN: ${pr.mergeStateStatus}`);
             }
-            if (statusCheckRollup.find(s => s.conclusion !== 'SUCCESS')) {
+            if (pr.statusCheckRollup.find(s => s.conclusion !== 'SUCCESS')) {
               throw new Error('Not all status checks are success');
             }
 
