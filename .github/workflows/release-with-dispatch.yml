@@ -47,6 +47,9 @@ jobs:
       main: ${{ github.ref_name }}
       user: LuckyBeast
       package_jsons_to_rewrite: ${{ vars.PACKAGE_JSONS_TO_REWRITE }}
+    secrets:
+      RULESET_EDIT_APP_ID: ${{ secrets.RULESET_EDIT_APP_ID }}
+      RULESET_EDIT_APP_SECRET: ${{ secrets.RULESET_EDIT_APP_SECRET }}
 
   create-prerelease:
     uses: misskey-dev/release-actions/.github/workflows/create-prerelease.yml@main
@@ -80,3 +83,6 @@ jobs:
           return `${major}.${minor}.${patch + 1}`;
         }
       package_jsons_to_rewrite: ${{ vars.PACKAGE_JSONS_TO_REWRITE }}
+    secrets:
+      RULESET_EDIT_APP_ID: ${{ secrets.RULESET_EDIT_APP_ID }}
+      RULESET_EDIT_APP_SECRET: ${{ secrets.RULESET_EDIT_APP_SECRET }}

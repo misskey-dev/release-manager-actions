@@ -19,6 +19,11 @@ on:
         type: string
         description: 'package.jsons to rewrite (json)'
         default: '["package.json"]'
+    secrets:
+      RULESET_EDIT_APP_ID:
+        description: 'App ID for app to edit rulesets'
+      RULESET_EDIT_APP_PRIVATE_KEY:
+        description: 'Private key for app to edit rulesets'
 
 permissions:
   contents: write
