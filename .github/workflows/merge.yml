@@ -75,6 +75,8 @@ jobs:
           ruleset_id: ${{ vars.RULESET_ID_WITHIN_RELEASE }}
           enforcement: disabled
 
+      - name: Sleep
+        run: sleep 5s
       - name: 'Fetch PR data'
         id: pr-data
         run: |
