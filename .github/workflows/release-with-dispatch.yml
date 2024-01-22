@@ -47,6 +47,20 @@ jobs:
       pr_number: ${{ needs.get-pr.outputs.pr_number }}
       user: LuckyBeast
       package_jsons_to_rewrite: ${{ vars.PACKAGE_JSONS_TO_REWRITE }}
+      # Text to prepend to the changelog
+      # The first line must be `## Unreleased`
+      changes_template: |
+        ## Unreleased
+
+        ### General
+        -
+        
+        ### Client
+        -
+        
+        ### Server
+        -
+        
     secrets:
       RULESET_EDIT_APP_ID: ${{ secrets.RULESET_EDIT_APP_ID }}
       RULESET_EDIT_APP_PRIVATE_KEY: ${{ secrets.RULESET_EDIT_APP_PRIVATE_KEY }}

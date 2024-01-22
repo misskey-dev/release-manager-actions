@@ -15,6 +15,13 @@ on:
         type: string
         description: 'package.jsons to rewrite (json)'
         default: 'package.json'
+      changes_template:
+        type: string
+        description: 'Template for CHANGELOG.md'
+        default: |
+          ## Unreleased
+          -
+          
     secrets:
       RULESET_EDIT_APP_ID:
         description: 'App ID for app to edit rulesets'
@@ -191,18 +198,7 @@ jobs:
           ref: ${{ steps.declear-base-branch.outputs.base_branch }}
       - name: Prepend CHANGELOG template
         env:
-          CHANGES_TEMPLATE: |
-            ## 202x.x.x (Unreleased)
-
-            ### General
-            -
-            
-            ### Client
-            -
-            
-            ### Server
-            -
-            
+          CHANGES_TEMPLATE: ${{ inputs.changes_template }}
         run: sed -i "1i $(echo "${CHANGES_TEMPLATE}" | sed -r 's/$/\\n/' | while IFS= read -r line; do echo -n "$line"; done)" CHANGELOG.md
       - name: Update CHANGELOG.md (prepend template)
         run: |

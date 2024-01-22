@@ -70,12 +70,12 @@ jobs:
       - name: Get changelog
         uses: ./.github/actions/get-changelog
         with:
-          version: 202x.x.x (Unreleased)
+          version: Unreleased
         id: changelog
       # CHANGELOG.mdのバージョンの書き換え
       - name: Modify CHANGELOG.md
         run: |
-          sed -i 's/## 202x.x.x (Unreleased)/## ${{ steps.target_version.outputs.result }}/' CHANGELOG.md
+          sed -i 's/## Unreleased/## ${{ steps.target_version.outputs.result }}/' CHANGELOG.md
       # release/ブランチとタグを作成
       - name: Commit version
         run: |
