@@ -78,7 +78,7 @@ jobs:
       # mergeable: UNKNOWNを回避したい
       - name: 'Pre-fetch PR data'
         run: |
-          echo "data=$(gh pr view ${{ inputs.pr_number }} --json mergeable)"
+          gh pr view ${{ inputs.pr_number }} --json mergeable)
       - name: Sleep
         run: sleep 5s
 
