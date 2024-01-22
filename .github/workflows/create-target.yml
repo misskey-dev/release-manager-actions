@@ -113,7 +113,7 @@ jobs:
           route: PUT /repos/{repository}/rulesets/{ruleset_id}
           repository: ${{ github.repository }}
           ruleset_id: ${{ vars.RULESET_ID_WITHIN_RELEASE }}
-          enforcement: enabled
+          enforcement: active
       - name: Disable the ruleset
         uses: octokit/request-action@v2.x
         if: steps.app-token.outputs.token && vars.RULESET_ID_OUT_OF_RELEASE
