@@ -49,7 +49,7 @@ jobs:
       package_jsons_to_rewrite: ${{ vars.PACKAGE_JSONS_TO_REWRITE }}
     secrets:
       RULESET_EDIT_APP_ID: ${{ secrets.RULESET_EDIT_APP_ID }}
-      RULESET_EDIT_APP_SECRET: ${{ secrets.RULESET_EDIT_APP_SECRET }}
+      RULESET_EDIT_APP_PRIVATE_KEY: ${{ secrets.RULESET_EDIT_APP_PRIVATE_KEY }}
 
   create-prerelease:
     uses: misskey-dev/release-actions/.github/workflows/create-prerelease.yml@main
@@ -85,4 +85,4 @@ jobs:
       package_jsons_to_rewrite: ${{ vars.PACKAGE_JSONS_TO_REWRITE }}
     secrets:
       RULESET_EDIT_APP_ID: ${{ secrets.RULESET_EDIT_APP_ID }}
-      RULESET_EDIT_APP_SECRET: ${{ secrets.RULESET_EDIT_APP_SECRET }}
+      RULESET_EDIT_APP_PRIVATE_KEY: ${{ secrets.RULESET_EDIT_APP_PRIVATE_KEY }}
