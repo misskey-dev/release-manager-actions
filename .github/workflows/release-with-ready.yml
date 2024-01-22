@@ -6,8 +6,6 @@ on:
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  PACKAGE_JSONS_TO_REWRITE: |
-    ["package.json", "packages/misskey-js/package.json"]
 
 permissions:
   contents: write
@@ -34,4 +32,4 @@ jobs:
     with:
       pr_number: ${{ github.event.pull_request.number }}
       user: 'LuckyBeast'
-      package_jsons_to_rewrite: ${{ env.PACKAGE_JSONS_TO_REWRITE }}
+      package_jsons_to_rewrite: ${{ vars.PACKAGE_JSONS_TO_REWRITE }}

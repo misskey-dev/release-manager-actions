@@ -9,8 +9,6 @@ on:
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  PACKAGE_JSONS: |
-    ["package.json", "packages/misskey-js/package.json"]
 
 permissions:
   contents: write

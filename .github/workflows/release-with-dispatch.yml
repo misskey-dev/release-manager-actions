@@ -8,7 +8,7 @@ on:
         description: 'MERGE RELEASE BRANCH TO MAIN'
         default: false
       #version_increment_type:
-      #  type: string
+      #  type: choice
       #  description: 'VERSION INCREMENT TYPE'
       #  default: 'patch'
       #  required: false
@@ -19,8 +19,6 @@ on:
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  PACKAGE_JSONS_TO_REWRITE: |
-    ["package.json", "packages/misskey-js/package.json"]
 
 permissions:
   contents: write
@@ -48,7 +46,7 @@ jobs:
       pr_number: ${{ needs.get-pr.outputs.pr_number }}
       main: ${{ github.ref_name }}
       user: LuckyBeast
-      package_jsons_to_rewrite: ${{ env.PACKAGE_JSONS_TO_REWRITE }}
+      package_jsons_to_rewrite: ${{ vars.PACKAGE_JSONS_TO_REWRITE }}
 
   create-prerelease:
     uses: misskey-dev/release-actions/.github/workflows/create-prerelease.yml@main
@@ -57,7 +55,7 @@ jobs:
     with:
       pr_number: ${{ needs.get-pr.outputs.pr_number }}
       user: LuckyBeast
-      package_jsons_to_rewrite: ${{ env.PACKAGE_JSONS_TO_REWRITE }}
+      package_jsons_to_rewrite: ${{ vars.PACKAGE_JSONS_TO_REWRITE }}
 
   create-target:
     uses: misskey-dev/release-actions/.github/workflows/create-target.yml@main
@@ -81,4 +79,4 @@ jobs:
         } else {
           return `${major}.${minor}.${patch + 1}`;
         }
-      package_jsons_to_rewrite: ${{ env.PACKAGE_JSONS_TO_REWRITE }}
+      package_jsons_to_rewrite: ${{ vars.PACKAGE_JSONS_TO_REWRITE }}
