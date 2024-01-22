@@ -146,9 +146,16 @@ jobs:
             git push origin HEAD:release/${{ steps.v.outputs.target_version }}
           fi
 
+      # Merge
+      # (Retry because mergeable can unknown after push)
       - name: Try merge
-        run: |
-          gh pr merge ${{ inputs.pr_number }} --merge
+        uses: nick-fields/retry@v2
+        with:
+          command: |
+            gh pr merge ${{ inputs.pr_number }} --merge
+          timeout_seconds: 30
+          max_attempts: 3
+          retry_wait_seconds: 5
 
       # CHANGELOG.mdの内容を取得
       - name: Get changelog
