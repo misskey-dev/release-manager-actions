@@ -16,7 +16,7 @@ Reference: https://github.com/actions/create-github-app-token/tree/v1/
 Open `Install App` tab and install to the repository.
 
 Then create the ruleset(s) you want to use and set its (their) ID to `RULESET_ID_WITHIN_RELEASE` or `RULESET_ID_OUT_OF_RELEASE` as variable(s).  
-For example, create a ruleset to lock the main branch during the release work period and set it to `RULESET_ID_WITHIN_RELEASE`.
+For example, create a ruleset with enabling `Restrict updates` (to lock the main branch) during the release work period and set it to `RULESET_ID_WITHIN_RELEASE`.
 
 ## Repository secrets and variables
 ### Secrets
