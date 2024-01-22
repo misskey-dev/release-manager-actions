@@ -11,6 +11,10 @@ on:
         type: string
         description: 'User name'
         default: 'github-actions[bot]'
+      package_jsons_to_rewrite:
+        type: string
+        description: 'package.jsons to rewrite (json)'
+        default: '["package.json"]'
 
 permissions:
   contents: write
@@ -67,9 +71,10 @@ jobs:
         id: release_version
       # バージョンをpackage.jsonに書き込み
       - name: Write version
-        run: |
-          jq '.version = "${{ steps.release_version.outputs.result }}"' package.json > package.json.tmp && mv package.json.tmp package.json
-          jq '.version = "${{ steps.release_version.outputs.result }}"' packages/misskey-js/package.json > packages/misskey-js/package.json.tmp && mv packages/misskey-js/package.json.tmp packages/misskey-js/package.json
+        uses: ./.github/actions/rewrite-package-json
+        with:
+          version: ${{ steps.release_version.outputs.result }}
+          package_jsons: ${{ inputs.package_jsons_to_rewrite }}
       # release/ブランチにpush、タグを作成
       - name: Commit version
         run: |

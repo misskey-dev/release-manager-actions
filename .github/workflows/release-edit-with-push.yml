@@ -9,6 +9,8 @@ on:
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  PACKAGE_JSONS: |
+    ["package.json", "packages/misskey-js/package.json"]
 
 permissions:
   contents: write
@@ -26,11 +28,11 @@ jobs:
           echo "pr_number=$(gh pr list --limit 1 --head "${{ github.ref_name }}" --json number  --jq '.[] | .number')" >> $GITHUB_OUTPUT
         id: get_pr
       - name: Get target version
-        uses: ./.github/actions/get-target-version
+        uses: misskey-dev/release-actions/.github/actions/get-target-version@main
         id: v
       # CHANGELOG.mdの内容を取得
       - name: Get changelog
-        uses: ./.github/actions/get-changelog
+        uses: misskey-dev/release-actions/.github/actions/get-changelog@main
         with:
           version: ${{ steps.v.outputs.target_version }}
         id: changelog

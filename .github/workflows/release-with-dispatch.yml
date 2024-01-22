@@ -7,9 +7,20 @@ on:
         type: boolean
         description: 'MERGE RELEASE BRANCH TO MAIN'
         default: false
+      #version_increment_type:
+      #  type: string
+      #  description: 'VERSION INCREMENT TYPE'
+      #  default: 'patch'
+      #  required: false
+      #  options:
+      #    - 'major'
+      #    - 'minor'
+      #    - 'patch'
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  PACKAGE_JSONS_TO_REWRITE: |
+    ["package.json", "packages/misskey-js/package.json"]
 
 permissions:
   contents: write
@@ -30,25 +41,44 @@ jobs:
         id: get_pr
 
   merge:
-    uses: ./.github/workflows/merge.yml
+    uses: misskey-dev/release-actions/.github/workflows/merge.yml@main
     needs: get-pr
     if: ${{ needs.get-pr.outputs.pr_number != '' && inputs.merge == true }}
     with:
       pr_number: ${{ needs.get-pr.outputs.pr_number }}
       main: ${{ github.ref_name }}
       user: LuckyBeast
+      package_jsons_to_rewrite: ${{ env.PACKAGE_JSONS_TO_REWRITE }}
 
   create-prerelease:
-    uses: ./.github/workflows/create-prerelease.yml
+    uses: misskey-dev/release-actions/.github/workflows/create-prerelease.yml@main
     needs: get-pr
     if: ${{ needs.get-pr.outputs.pr_number != '' && inputs.merge != true  }}
     with:
       pr_number: ${{ needs.get-pr.outputs.pr_number }}
       user: LuckyBeast
+      package_jsons_to_rewrite: ${{ env.PACKAGE_JSONS_TO_REWRITE }}
 
   create-target:
-    uses: ./.github/workflows/create-target.yml
+    uses: misskey-dev/release-actions/.github/workflows/create-target.yml@main
     needs: get-pr
     if: ${{ needs.get-pr.outputs.pr_number == '' }}
     with:
       user: LuckyBeast
+      version_increment_type: ${{ inputs.version_increment_type }}
+      version_increment_script: |
+        const now = new Date();
+        const year = now.toLocaleDateString('en-US', { year: 'numeric', timeZone: 'Asia/Tokyo' });
+        const month = now.toLocaleDateString('en-US', { month: 'numeric', timeZone: 'Asia/Tokyo' });
+        const [major, minor, _patch] = process.env.CURRENT_VERSION.split('.');
+        const patch = Number(_patch.split('-')[0]);
+        if (Number.isNaN(patch)) {
+          console.error('Invalid patch version', year, month, process.env.CURRENT_VERSION, major, minor, _patch);
+          throw new Error('Invalid patch version');
+        }
+        if (year !== major || month !== minor) {
+          return `${year}.${month}.0`;
+        } else {
+          return `${major}.${minor}.${patch + 1}`;
+        }
+      package_jsons_to_rewrite: ${{ env.PACKAGE_JSONS_TO_REWRITE }}

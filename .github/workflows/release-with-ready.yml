@@ -6,6 +6,8 @@ on:
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  PACKAGE_JSONS_TO_REWRITE: |
+    ["package.json", "packages/misskey-js/package.json"]
 
 permissions:
   contents: write
@@ -26,9 +28,10 @@ jobs:
           echo "ref=$(echo $pr_json | jq -r '.headRefName')" >> $GITHUB_OUTPUT
         id: get_pr
   release:
-    uses: ./.github/workflows/create-prerelease.yml
+    uses: misskey-dev/release-actions/.github/workflows/create-prerelease.yml@main
     needs: check
     if: startsWith(needs.check.outputs.ref, 'release/')
     with:
       pr_number: ${{ github.event.pull_request.number }}
       user: 'LuckyBeast'
+      package_jsons_to_rewrite: ${{ env.PACKAGE_JSONS_TO_REWRITE }}

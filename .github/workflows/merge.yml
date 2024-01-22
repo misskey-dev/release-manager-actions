@@ -15,14 +15,15 @@ on:
         type: string
         description: User name
         default: github-actions[bot]
+      package_jsons_to_rewrite:
+        type: string
+        description: 'package.jsons to rewrite (json)'
+        default: '["package.json"]'
 
 permissions:
   contents: write
   issues: write
   pull-requests: write
-
-env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   merge:
@@ -45,6 +46,7 @@ jobs:
         uses: ./.github/actions/rewrite-package-json
         with:
           version: ${{ steps.v.outputs.target_version }}
+          package_jsons: ${{ inputs.package_jsons_to_rewrite }}
 
       # commit, push
       - name: Commit version

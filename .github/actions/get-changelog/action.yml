@@ -5,7 +5,7 @@ inputs:
     description: "Version to get changelog"
     required: true
 outputs:
-  result:
+  changelog:
     description: "changelog"
     value: ${{ steps.changelog.outputs.changelog }}
 runs:

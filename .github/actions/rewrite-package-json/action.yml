@@ -4,12 +4,16 @@ inputs:
   version:
     description: "Version to rewrite"
     required: true
+  package_jsons:
+    description: "package.jsons to rewrite"
+    default: '["package.json"]'
 runs:
   using: "composite"
   steps:
     # バージョンをpackage.jsonに書き込み
     - name: Write version
       run: |
-        jq '.version = "${{ inputs.version }}"' package.json > package.json.tmp && mv package.json.tmp package.json
-        jq '.version = "${{ inputs.version }}"' packages/misskey-js/package.json > packages/misskey-js/package.json.tmp && mv packages/misskey-js/package.json.tmp packages/misskey-js/package.json
+        for package_json in $(echo "${{ inputs.package_jsons }}" | jq -r '.[]'); do
+          jq '.version = "${{ inputs.version }}"' "${package_json}" > "${package_json}.tmp" && mv "${package_json}.tmp" "${package_json}"
+        done
       shell: bash

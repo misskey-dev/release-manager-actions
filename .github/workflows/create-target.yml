@@ -7,6 +7,20 @@ on:
         type: string
         description: 'User name'
         default: 'github-actions[bot]'
+      version_increment_script:
+        type: string
+        description: 'Script to increment version'
+        default: |
+          #!/bin/bash
+          #
+      version_increment_type:
+        type: string
+        description: 'Version increment type'
+        default: 'patch'
+      package_jsons_to_rewrite:
+        type: string
+        description: 'package.jsons to rewrite (json)'
+        default: '["package.json"]'
 
 permissions:
   contents: write
@@ -39,21 +53,7 @@ jobs:
         env:
           CURRENT_VERSION: ${{ steps.get_current_version.outputs.current_version }}
         with:
-          script: |
-            const now = new Date();
-            const year = now.toLocaleDateString('en-US', { year: 'numeric', timeZone: 'Asia/Tokyo' });
-            const month = now.toLocaleDateString('en-US', { month: 'numeric', timeZone: 'Asia/Tokyo' });
-            const [major, minor, _patch] = process.env.CURRENT_VERSION.split('.');
-            const patch = Number(_patch.split('-')[0]);
-            if (Number.isNaN(patch)) {
-              console.error('Invalid patch version', year, month, process.env.CURRENT_VERSION, major, minor, _patch);
-              throw new Error('Invalid patch version');
-            }
-            if (year !== major || month !== minor) {
-              return `${year}.${month}.0`;
-            } else {
-              return `${major}.${minor}.${patch + 1}`;
-            }
+          script: ${{ inputs.version_increment_script }}
           result-encoding: string
         id: target_version
       - name: beta 0
@@ -61,17 +61,15 @@ jobs:
         id: release_version
       # バージョンをpackage.jsonに書き込み
       - name: Write version
-        run: |
-          jq '.version = "${{ steps.release_version.outputs.result }}"' package.json > package.json.tmp && mv package.json.tmp package.json
-          jq '.version = "${{ steps.release_version.outputs.result }}"' packages/misskey-js/package.json > packages/misskey-js/package.json.tmp && mv packages/misskey-js/package.json.tmp packages/misskey-js/package.json
+        uses: ./.github/actions/rewrite-package-json
+        with:
+          version: ${{ steps.release_version.outputs.result }}
+          package_jsons: ${{ inputs.package_jsons_to_rewrite }}
       # CHANGELOG.mdのUnreleasedの内容を取得
       - name: Get changelog
-        run: |
-          {
-            echo 'changelog<<EOF'
-            sed -n '/## 202x.x.x (Unreleased)/,/^## /p' CHANGELOG.md | sed -e 1d -e '$d'
-            echo EOF
-          } >> $GITHUB_OUTPUT
+        uses: ./.github/actions/get-changelog
+        with:
+          version: 202x.x.x (Unreleased)
         id: changelog
       # CHANGELOG.mdのバージョンの書き換え
       - name: Modify CHANGELOG.md
