@@ -92,12 +92,19 @@ jobs:
       - name: Create PR
         run: |
           gh pr create --draft --title "Release: ${{ steps.target_version.outputs.result }}" --body "${{ steps.changelog.outputs.changelog }}" --head release/${{ steps.target_version.outputs.result }} --base ${{ github.ref_name }}
+
       # rulesetを切り替え
+      - uses: actions/create-github-app-token@v1
+        id: app-token
+        with:
+          app-id: ${{ secrets.RULESET_EDIT_APP_ID }}
+          private-key: ${{ secrets.RULESET_EDIT_APP_PRIVATE_KEY }}
       - name: Switch rulesets
         uses: actions/script@v7
         env:
           RULESET_ID_WITHIN_RELEASE: ${{ vars.RULESET_ID_WITHIN_RELEASE }}
           RULESET_ID_OUT_OF_RELEASE: ${{ vars.RULESET_ID_OUT_OF_RELEASE }}
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
         with:
           script: |
             if (process.env.RULESET_ID_WITHIN_RELEASE) {
