@@ -1,3 +1,6 @@
+CHANGELOG
+=======================================
+
 ## Unreleased
 
 ### General
