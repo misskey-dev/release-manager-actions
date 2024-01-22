@@ -96,7 +96,7 @@ jobs:
 
       - name: Try merge
         run: |
-          gh pr merge ${{ inputs.pr_number }} --merge --auto
+          gh pr merge ${{ inputs.pr_number }}
 
       # CHANGELOG.mdの内容を取得
       - name: Get changelog
