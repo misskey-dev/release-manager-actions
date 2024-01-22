@@ -1,5 +1,21 @@
 # release-actions
 
+## workflows you should copy
+Copy and use these workflows.
+
+### release-with-dispatch.yml (Release Manager [Dispatch])
+The core workflow that is manually triggered. It has three functions:
+
+1. Prepare release - create release branch, beta.0 tag, and PR
+2. Issue a pre-release version during the release process
+3. Issue a stable release when you check `MERGE RELEASE BRANCH TO MAIN`
+
+### release-edit-with-push.yml
+This workflow changes the description of the PR when CHANGELOG.md is changed.
+
+### release-with-ready.yml
+Release rc when PR is ready for review.
+
 ## Ruleset management
 You can enable/disable ruleset for release working and non-working periods.
 

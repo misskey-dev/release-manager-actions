@@ -3,10 +3,7 @@ name: "Release Manager [Dispatch]"
 on:
   workflow_dispatch:
     inputs:
-      merge:
-        type: boolean
-        description: 'MERGE RELEASE BRANCH TO MAIN'
-        default: false
+      ## Specify the type of the next release.
       #version_increment_type:
       #  type: choice
       #  description: 'VERSION INCREMENT TYPE'
@@ -16,6 +13,10 @@ on:
       #    - 'major'
       #    - 'minor'
       #    - 'patch'
+      merge:
+        type: boolean
+        description: 'MERGE RELEASE BRANCH TO MAIN'
+        default: false
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -44,7 +45,6 @@ jobs:
     if: ${{ needs.get-pr.outputs.pr_number != '' && inputs.merge == true }}
     with:
       pr_number: ${{ needs.get-pr.outputs.pr_number }}
-      main: ${{ github.ref_name }}
       user: LuckyBeast
       package_jsons_to_rewrite: ${{ vars.PACKAGE_JSONS_TO_REWRITE }}
     secrets:
@@ -66,7 +66,10 @@ jobs:
     if: ${{ needs.get-pr.outputs.pr_number == '' }}
     with:
       user: LuckyBeast
-      version_increment_type: ${{ inputs.version_increment_type }}
+      # The script for version increment.
+      # process.env.CURRENT_VERSION: The current version.
+      #
+      # Misskey calender versioning (yyyy.MM.patch) example
       version_increment_script: |
         const now = new Date();
         const year = now.toLocaleDateString('en-US', { year: 'numeric', timeZone: 'Asia/Tokyo' });
@@ -82,6 +85,16 @@ jobs:
         } else {
           return `${major}.${minor}.${patch + 1}`;
         }
+      ##Semver example
+      #version_increment_script: |
+      #  const [major, minor, patch] = process.env.CURRENT_VERSION.split('.');
+      #  if ("${{ inputs.version_increment_type }}" === "major") {
+      #    return `${Number(major) + 1}.0.0`;
+      #  } else if ("${{ inputs.version_increment_type }}" === "minor") {
+      #    return `${major}.${Number(minor) + 1}.0`;
+      #  } else {
+      #    return `${major}.${minor}.${Number(patch) + 1}`;
+      #  }
       package_jsons_to_rewrite: ${{ vars.PACKAGE_JSONS_TO_REWRITE }}
     secrets:
       RULESET_EDIT_APP_ID: ${{ secrets.RULESET_EDIT_APP_ID }}

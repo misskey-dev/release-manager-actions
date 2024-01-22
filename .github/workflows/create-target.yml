@@ -13,10 +13,6 @@ on:
         default: |
           #!/bin/bash
           #
-      version_increment_type:
-        type: string
-        description: 'Version increment type'
-        default: 'patch'
       package_jsons_to_rewrite:
         type: string
         description: 'package.jsons to rewrite (json)'

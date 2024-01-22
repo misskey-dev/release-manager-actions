@@ -7,10 +7,6 @@ on:
         type: string
         description: PR number
         required: true
-      main:
-        type: string
-        description: Main branch name
-        default: main
       user:
         type: string
         description: User name
@@ -79,14 +75,14 @@ jobs:
           ruleset_id: ${{ vars.RULESET_ID_WITHIN_RELEASE }}
           enforcement: disabled
 
-      - name: 'Check Mergeable: gh pr view'
-        id: check-mergeable-gh-pr-view
+      - name: 'Fetch PR data'
+        id: pr-data
         run: |
-          echo "data=$(gh pr view ${{ inputs.pr_number }} --json reviewDecision,isDraft,mergeStateStatus,statusCheckRollup,mergeable)" >> $GITHUB_OUTPUT
+          echo "data=$(gh pr view ${{ inputs.pr_number }} --json baseRefName,reviewDecision,isDraft,mergeStateStatus,statusCheckRollup,mergeable)" >> $GITHUB_OUTPUT
       - name: 'Check Mergeable: compare'
         uses: actions/script@v7
         env:
-          pr_data: ${{ steps.check-mergeable-gh-pr-view.outputs.data }}
+          pr_data: ${{ steps.pr-data.outputs.data }}
         with:
           script: |
             const pr = JSON.parse(process.env.pr_data);
@@ -174,10 +170,16 @@ jobs:
         run: |
           gh release create "${{ steps.v.outputs.target_version }}" --title "${{ steps.v.outputs.target_version }}" --notes "${{ steps.changelog.outputs.changelog }}"
 
+      # Declear base branch
+      - name: Declear base branch
+        id: declear-base-branch
+        run: |
+          echo "base_branch=$(echo "${{ steps.pr-data.outputs.data }}" | jq -r '.baseRefName')" >> $GITHUB_OUTPUT
+
       # CHANGELOG.mdにUnreleasedのテンプレートを追加
       - uses: actions/checkout@v4
         with:
-          ref: ${{ inputs.main }}
+          ref: ${{ steps.declear-base-branch.outputs.base_branch }}
       - name: Prepend CHANGELOG template
         env:
           CHANGES_TEMPLATE: |
@@ -196,4 +198,4 @@ jobs:
       - name: Commit version
         run: |
           git commit -am "[skip ci] Update CHANGELOG.md (prepend template)"
-          git push origin HEAD:${{ inputs.main }}
+          git push origin HEAD:${{ steps.declear-base-branch.outputs.base_branch }}
