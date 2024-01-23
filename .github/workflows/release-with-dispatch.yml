@@ -40,12 +40,11 @@ jobs:
         id: get_pr
 
   merge:
-    uses: joinmisskey/release-actions/.github/workflows/merge.yml@main
+    uses: misskey-dev/release-manager-actions/.github/workflows/merge.yml@v1
     needs: get-pr
     if: ${{ needs.get-pr.outputs.pr_number != '' && inputs.merge == true }}
     with:
       pr_number: ${{ needs.get-pr.outputs.pr_number }}
-      user: LuckyBeast
       package_jsons_to_rewrite: ${{ vars.PACKAGE_JSONS_TO_REWRITE }}
       # Text to prepend to the changelog
       # The first line must be `## Unreleased`
@@ -66,20 +65,18 @@ jobs:
       RULESET_EDIT_APP_PRIVATE_KEY: ${{ secrets.RULESET_EDIT_APP_PRIVATE_KEY }}
 
   create-prerelease:
-    uses: joinmisskey/release-actions/.github/workflows/create-prerelease.yml@main
+    uses: misskey-dev/release-manager-actions/.github/workflows/create-prerelease.yml@v1
     needs: get-pr
     if: ${{ needs.get-pr.outputs.pr_number != '' && inputs.merge != true  }}
     with:
       pr_number: ${{ needs.get-pr.outputs.pr_number }}
-      user: LuckyBeast
       package_jsons_to_rewrite: ${{ vars.PACKAGE_JSONS_TO_REWRITE }}
 
   create-target:
-    uses: joinmisskey/release-actions/.github/workflows/create-target.yml@main
+    uses: misskey-dev/release-manager-actions/.github/workflows/create-target.yml@v1
     needs: get-pr
     if: ${{ needs.get-pr.outputs.pr_number == '' }}
     with:
-      user: LuckyBeast
       # The script for version increment.
       # process.env.CURRENT_VERSION: The current version.
       #

@@ -1,4 +1,8 @@
-# release-actions
+# Release Manager
+GitHub Actions workflows for release management of the repository. 
+
+## Flow
+![](flow.png)
 
 ## workflows you should copy
 Copy and use these workflows.
