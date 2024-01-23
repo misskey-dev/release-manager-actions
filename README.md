@@ -18,7 +18,7 @@ The core workflow that is manually triggered. It has three functions:
 This workflow changes the description of the PR when CHANGELOG.md is changed.
 
 ### release-with-ready.yml
-Release rc when PR is ready for review.
+Release rc when PR becomes ready for review.
 
 ## Ruleset management
 You can enable/disable ruleset for release working and non-working periods.
