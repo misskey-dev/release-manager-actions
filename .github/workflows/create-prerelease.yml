@@ -33,13 +33,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Initialize
-        uses: ./.github/actions/checkout-pr
+        uses: joinmisskey/release-actions/.github/actions/checkout-pr
         with:
           pr_number: ${{ inputs.pr_number }}
           user: ${{ inputs.user }}
         id: get_pr
       - name: Get target version
-        uses: ./.github/actions/get-target-version
+        uses: joinmisskey/release-actions/.github/actions/get-target-version
         id: v
       # バージョンをインクリメント
       - name: Increment version
@@ -71,7 +71,7 @@ jobs:
         id: release_version
       # バージョンをpackage.jsonに書き込み
       - name: Write version
-        uses: ./.github/actions/rewrite-package-json
+        uses: joinmisskey/release-actions/.github/actions/rewrite-package-json
         with:
           version: ${{ steps.release_version.outputs.result }}
           package_jsons: ${{ inputs.package_jsons_to_rewrite }}
@@ -84,7 +84,7 @@ jobs:
           git push origin "${{ steps.release_version.outputs.result }}"
       # CHANGELOG.mdの内容を取得
       - name: Get changelog
-        uses: ./.github/actions/get-changelog
+        uses: joinmisskey/release-actions/.github/actions/get-changelog
         with:
           version: ${{ steps.v.outputs.target_version }}
         id: changelog

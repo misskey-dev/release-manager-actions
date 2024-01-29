@@ -62,13 +62,13 @@ jobs:
         id: release_version
       # バージョンをpackage.jsonに書き込み
       - name: Write version
-        uses: ./.github/actions/rewrite-package-json
+        uses: joinmisskey/release-actions/.github/actions/rewrite-package-json
         with:
           version: ${{ steps.release_version.outputs.result }}
           package_jsons: ${{ inputs.package_jsons_to_rewrite }}
       # CHANGELOG.mdのUnreleasedの内容を取得
       - name: Get changelog
-        uses: ./.github/actions/get-changelog
+        uses: joinmisskey/release-actions/.github/actions/get-changelog
         with:
           version: Unreleased
         id: changelog
