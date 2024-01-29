@@ -44,12 +44,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Initialize
-        uses: joinmisskey/release-actions/.github/actions/checkout-pr
+        uses: joinmisskey/release-actions/.github/actions/checkout-pr@main
         with:
           pr_number: ${{ inputs.pr_number }}
           user: ${{ inputs.user }}
       - name: Get target version
-        uses: joinmisskey/release-actions/.github/actions/get-target-version
+        uses: joinmisskey/release-actions/.github/actions/get-target-version@main
         id: v
 
       # rulesetを切り替え
@@ -143,7 +143,7 @@ jobs:
 
       # バージョンをpackage.jsonに書き込み
       - name: Write version
-        uses: joinmisskey/release-actions/.github/actions/rewrite-package-json
+        uses: joinmisskey/release-actions/.github/actions/rewrite-package-json@main
         with:
           version: ${{ steps.v.outputs.target_version }}
           package_jsons: ${{ inputs.package_jsons_to_rewrite }}
@@ -158,7 +158,7 @@ jobs:
 
       # CHANGELOG.mdの内容を取得
       - name: Get changelog
-        uses: joinmisskey/release-actions/.github/actions/get-changelog
+        uses: joinmisskey/release-actions/.github/actions/get-changelog@main
         with:
           version: ${{ steps.v.outputs.target_version }}
         id: changelog
