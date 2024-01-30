@@ -2,6 +2,7 @@ name: on release
 
 on:
   release:
+    types: [released, prereleased]
 
 jobs:
     echo:
