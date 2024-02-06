@@ -1,0 +1,1285 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="314.87778mm"
+   height="326.18866mm"
+   viewBox="0 0 314.87778 326.18867"
+   version="1.1"
+   id="svg5"
+   sodipodi:docname="flow.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   inkscape:export-filename="新規ドキュメント 1.2024_01_24_04_14_24.0.png"
+   inkscape:export-xdpi="120"
+   inkscape:export-ydpi="120"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1.3641449"
+     inkscape:cx="287.72603"
+     inkscape:cy="717.29917"
+     inkscape:window-width="2197"
+     inkscape:window-height="1027"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1">
+    <sodipodi:guide
+       position="-55.530329,254.82889"
+       orientation="1,0"
+       id="guide22937"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2">
+    <marker
+       style="overflow:visible"
+       id="Arrow1"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Arrow1"
+       markerWidth="4.0606599"
+       markerHeight="6.7071061"
+       viewBox="0 0 4.0606602 6.7071068"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:none;stroke:context-stroke;stroke-width:1;stroke-linecap:butt"
+         d="M 3,-3 0,0 3,3"
+         id="path5057"
+         transform="rotate(180,0.125,0)"
+         sodipodi:nodetypes="ccc" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1L"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Arrow1L"
+       markerWidth="3.75"
+       markerHeight="2.714"
+       viewBox="0 0 8.75 5"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="none">
+      <path
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="arrow1L"
+         transform="scale(-0.5)" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1L-7"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Arrow1L"
+       markerWidth="3.75"
+       markerHeight="2.714"
+       viewBox="0 0 8.75 5"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="none">
+      <path
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="arrow1L-3"
+         transform="scale(-0.5)" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(4.5401521,-8.4599028)">
+    <rect
+       style="fill:#323232;fill-opacity:1;stroke:none;stroke-width:1.28325;stroke-linecap:round"
+       id="rect848"
+       width="314.87778"
+       height="326.18866"
+       x="-4.5401521"
+       y="8.4599028" />
+    <rect
+       style="opacity:1;fill:#36263e;fill-opacity:1;stroke:#ffffff;stroke-width:1.43433;stroke-linecap:butt;stroke-dasharray:2.86865, 1.43433, 0.717162, 1.43433;stroke-dashoffset:0;stroke-opacity:0.86372"
+       id="rect34739"
+       width="158.20946"
+       height="41.270298"
+       x="145.22998"
+       y="74.63871"
+       ry="5.2548127" />
+    <g
+       id="g33381"
+       transform="translate(13.691787,3.0525848)">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:12.0028px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Ultra-Bold';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.43025;stroke-linecap:round"
+         x="51.03138"
+         y="24.510523"
+         id="text1892"><tspan
+           sodipodi:role="line"
+           id="tspan1890"
+           style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Ultra-Bold';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke-width:2.43025"
+           x="51.03138"
+           y="24.510523">Misskey Release Flow</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.387px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Bold';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.69814;stroke-linecap:round"
+         x="196.69223"
+         y="24.55287"
+         id="text2106"><tspan
+           sodipodi:role="line"
+           id="tspan2104"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Bold';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke-width:1.69814"
+           x="196.69223"
+           y="24.55287">@Feb 2024</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.387px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Bold';text-align:start;text-anchor:start;fill:#ff1a1a;fill-opacity:1;stroke:#ffffff;stroke-width:1.698;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+         x="147.657"
+         y="30.055067"
+         id="text5187"><tspan
+           sodipodi:role="line"
+           id="tspan5185"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Bold';text-align:start;text-anchor:start;fill:#ff1a1a;fill-opacity:1;stroke:#ffffff;stroke-width:1.698;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+           x="147.657"
+           y="30.055067">aqz's DRAFT</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:7.3694px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Bold';text-align:center;text-anchor:middle;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:3.13344;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       x="106.07439"
+       y="43.014343"
+       id="text2364"><tspan
+         sodipodi:role="line"
+         id="tspan2362"
+         style="text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:3.13344"
+         x="106.07439"
+         y="43.014343">master</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:7.3694px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Bold';text-align:center;text-anchor:middle;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:3.13344;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       x="53.658752"
+       y="138.62679"
+       id="text3102"><tspan
+         sodipodi:role="line"
+         style="text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:3.13344"
+         x="53.658752"
+         y="138.62679"
+         id="tspan3104">release/yyyy.MM.x</tspan></text>
+    <path
+       style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2.1;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       d="M 86.75918,155.28272 V 277.93563"
+       id="path3108"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#9d9d9d;stroke-width:1.5;stroke-linecap:butt;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 106.07808,155.5646 0,116.06"
+       id="path17460"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2.1;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       d="M 106.07808,45.505273 V 155.5646"
+       id="path2162"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2.1;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       d="m 86.75918,142.0556 h 19.31891"
+       id="path10217"
+       sodipodi:nodetypes="cc" />
+    <circle
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.1;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       id="path12091"
+       cx="111.38435"
+       cy="-106.07809"
+       r="2.9486649"
+       transform="rotate(90)" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2.1;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       d="m 86.75918,276.34812 h 8.850192"
+       id="path13605"
+       sodipodi:nodetypes="cc" />
+    <g
+       id="g17450"
+       transform="rotate(90,33.324251,123.12832)">
+      <path
+         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2.1;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1L)"
+         d="m 186.54413,60.843166 3.09395,-3.37794"
+         id="path13609"
+         sodipodi:nodetypes="cc" />
+    </g>
+    <path
+       style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2.1;stroke-linecap:round;stroke-dasharray:2.1, 4.2;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 86.75918,266.82309 0.17236,117.91794"
+       id="path16579" />
+    <g
+       id="g17418"
+       transform="rotate(90,67.87388,124.93532)">
+      <path
+         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2.1;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1L-7)"
+         d="m 84.994205,106.05 h 6.339428"
+         id="path13609-9"
+         sodipodi:nodetypes="cc" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.9389px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Bold';text-align:center;text-anchor:middle;fill:#4fff6d;fill-opacity:1;stroke:none;stroke-width:2.1;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       x="126.77428"
+       y="51.624073"
+       id="text20886"><tspan
+         sodipodi:role="line"
+         id="tspan20884"
+         style="fill:#4fff6d;fill-opacity:1;stroke:none;stroke-width:2.1"
+         x="126.77428"
+         y="51.624073">A feature</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.9389px;line-height:1;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Bold';text-align:center;text-anchor:middle;fill:#4fff6d;fill-opacity:1;stroke:none;stroke-width:2.1;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       x="126.79433"
+       y="73.812752"
+       id="text23081"><tspan
+         style="fill:#4fff6d;fill-opacity:1;stroke:none;stroke-width:2.1"
+         sodipodi:role="line"
+         id="tspan23095"
+         x="126.79433"
+         y="73.812752">Another</tspan><tspan
+         sodipodi:role="line"
+         style="fill:#4fff6d;fill-opacity:1;stroke:none;stroke-width:2.1"
+         x="126.79433"
+         y="78.751648"
+         id="tspan23083">feature</tspan></text>
+    <path
+       style="fill:none;fill-opacity:1;stroke:#4fff6d;stroke-width:2.1;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 116.54136,59.938497 h 10.18057 v -5.537423"
+       id="path20260"
+       sodipodi:nodetypes="ccc" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#4fff6d;stroke-width:2.1;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 116.54679,86.558273 h 10.18057 V 81.02085"
+       id="path21013"
+       sodipodi:nodetypes="ccc" />
+    <g
+       id="g21851"
+       transform="translate(-203.76712,81.763112)">
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.1;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect21847"
+         width="5.8973293"
+         height="5.8973293"
+         x="306.89111"
+         y="-11.546156" />
+      <path
+         style="fill:none;fill-opacity:1;stroke:#4fff6d;stroke-width:2.1;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1L)"
+         d="m 320.30848,-21.824615 3.2e-4,5.48594 h -2.67271 l -1.53739,1.270814"
+         id="path21849"
+         sodipodi:nodetypes="cccc" />
+    </g>
+    <g
+       id="g21877"
+       transform="translate(-203.76169,108.38287)">
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.1;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect21873"
+         width="5.8973293"
+         height="5.8973293"
+         x="306.89111"
+         y="-11.546156" />
+      <path
+         style="fill:none;fill-opacity:1;stroke:#4fff6d;stroke-width:2.1;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1L)"
+         d="m 320.30848,-21.824615 3.2e-4,5.48594 h -2.67271 l -1.53739,1.270814"
+         id="path21875"
+         sodipodi:nodetypes="cccc" />
+    </g>
+    <circle
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.1;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       id="circle23097"
+       cx="84.764595"
+       cy="-106.07809"
+       r="2.9486649"
+       transform="rotate(90)" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.9389px;line-height:0em;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans';text-align:start;text-anchor:start;opacity:0.776382;fill:#09ff32;fill-opacity:1;stroke:#ffffff;stroke-width:2.1;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       x="70.76796"
+       y="90.113861"
+       id="text23106"><tspan
+         sodipodi:role="line"
+         id="tspan23104"
+         style="stroke-width:2.1"
+         x="70.76796"
+         y="90.113861" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.9389px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Bold';text-align:end;text-anchor:end;fill:#f4fff6;fill-opacity:1;stroke:none;stroke-width:2.1;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       x="101.30416"
+       y="86.685829"
+       id="text23170"><tspan
+         sodipodi:role="line"
+         id="tspan23168"
+         style="text-align:end;text-anchor:end;fill:#f4fff6;fill-opacity:1;stroke:none;stroke-width:2.1"
+         x="101.30416"
+         y="86.685829">A bugfix</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.9389px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Bold';text-align:end;text-anchor:end;fill:#f4fff6;fill-opacity:1;stroke:none;stroke-width:2.1;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       x="101.30416"
+       y="112.79688"
+       id="text23174"><tspan
+         sodipodi:role="line"
+         id="tspan23172"
+         style="text-align:end;text-anchor:end;fill:#f4fff6;fill-opacity:1;stroke:none;stroke-width:2.1"
+         x="101.30416"
+         y="112.79688">Another bugfix</tspan></text>
+    <g
+       id="g31515"
+       transform="translate(0,-2.1506218)">
+      <circle
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.1;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="circle23176"
+         cx="175.80133"
+         cy="-86.759178"
+         r="2.9486649"
+         transform="rotate(90)" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.9389px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Bold';text-align:end;text-anchor:end;fill:#f4fff6;fill-opacity:1;stroke:none;stroke-width:2.1;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         x="81.985252"
+         y="177.74301"
+         id="text23180"><tspan
+           sodipodi:role="line"
+           id="tspan23178"
+           style="text-align:end;text-anchor:end;fill:#f4fff6;fill-opacity:1;stroke:none;stroke-width:2.1"
+           x="81.985252"
+           y="177.74301">Update CHANGELOG.md</tspan></text>
+    </g>
+    <g
+       id="g23285"
+       style="opacity:0.811563"
+       transform="matrix(1.0605918,0,0,1.0605918,0.46529185,3.5231287)">
+      <g
+         id="g21841"
+         transform="matrix(0.6785158,0,0,0.6785158,7.859223,31.600806)"
+         style="opacity:1">
+        <rect
+           style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.1;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect21071"
+           width="5.8973293"
+           height="5.8973293"
+           x="15.947477"
+           y="38.089855" />
+      </g>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.00025px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans';text-align:start;text-anchor:start;opacity:1;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2.12609;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         x="23.834854"
+         y="60.876167"
+         id="text22835"><tspan
+           sodipodi:role="line"
+           id="tspan22833"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.12609"
+           x="23.834854"
+           y="60.876167">: A merge commit</tspan></text>
+      <path
+         sodipodi:type="star"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#010101;stroke-width:0.588059;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="path23264"
+         inkscape:flatsided="true"
+         sodipodi:sides="3"
+         sodipodi:cx="15.634782"
+         sodipodi:cy="103.409"
+         sodipodi:r1="5.8267393"
+         sodipodi:r2="2.9133697"
+         sodipodi:arg1="0.52359878"
+         sodipodi:arg2="1.5707963"
+         inkscape:rounded="0"
+         inkscape:randomized="0"
+         d="m 20.680886,106.32237 -10.092208,0 5.046104,-8.740113 z"
+         transform="matrix(-0.42474042,0,0,-0.42474042,27.321278,109.444)"
+         inkscape:transform-center-y="0.61870935" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.00025px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans';text-align:start;text-anchor:start;opacity:1;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2.12609;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         x="23.834854"
+         y="67.583221"
+         id="text23198"><tspan
+           sodipodi:role="line"
+           id="tspan23196"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.12609"
+           x="23.834854"
+           y="67.583221">: A release commit</tspan></text>
+    </g>
+    <g
+       id="g31525"
+       transform="translate(0,-0.52916673)">
+      <path
+         sodipodi:type="star"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#010101;stroke-width:0.588059;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="path23256"
+         inkscape:flatsided="true"
+         sodipodi:sides="3"
+         sodipodi:cx="15.634782"
+         sodipodi:cy="103.409"
+         sodipodi:r1="5.8267393"
+         sodipodi:r2="2.9133697"
+         sodipodi:arg1="0.52359878"
+         sodipodi:arg2="1.5707963"
+         inkscape:rounded="0"
+         inkscape:randomized="0"
+         d="m 20.680886,106.32237 -10.092208,0 5.046104,-8.740113 z"
+         transform="matrix(-0.68020393,0,0,-0.68020393,97.394016,226.83636)"
+         inkscape:transform-center-y="0.99084499" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.63551px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Bold';text-align:end;text-anchor:end;fill:#f4fff6;fill-opacity:1;stroke:none;stroke-width:1.97098;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         x="87.323112"
+         y="149.24226"
+         id="text23498"
+         transform="scale(0.93856918,1.0654516)"><tspan
+           sodipodi:role="line"
+           id="tspan23496"
+           style="text-align:end;text-anchor:end;fill:#f4fff6;fill-opacity:1;stroke:none;stroke-width:1.97098"
+           x="87.323112"
+           y="149.24226">Bump version to yyyy.MM.x-beta.0</tspan></text>
+    </g>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.1;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect21873-1"
+       width="5.8973293"
+       height="5.8973293"
+       x="103.12942"
+       y="282.21689" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.9389px;line-height:1;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Bold';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.1;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       x="126.66562"
+       y="167.36674"
+       id="text26588"><tspan
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.1"
+         sodipodi:role="line"
+         id="tspan26584"
+         x="126.66562"
+         y="167.36674">Another</tspan><tspan
+         sodipodi:role="line"
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.1"
+         x="126.66562"
+         y="172.30565"
+         id="tspan26586">bugfix</tspan></text>
+    <path
+       style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2.1;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 97.22788,180.85324 h 29.64979 v -5.53742"
+       id="path26590"
+       sodipodi:nodetypes="ccc" />
+    <g
+       id="g26596"
+       transform="translate(-223.0806,202.67783)">
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.1;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect26592"
+         width="5.8973293"
+         height="5.8973293"
+         x="306.89111"
+         y="-11.546156" />
+      <path
+         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2.1;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1L)"
+         d="m 320.30848,-21.824615 3.2e-4,5.48594 h -2.67271 l -1.53739,1.270814"
+         id="path26594"
+         sodipodi:nodetypes="cccc" />
+    </g>
+    <path
+       style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2.1;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       d="M 106.07808,271.6246 V 379.49867"
+       id="path29054"
+       sodipodi:nodetypes="cc" />
+    <g
+       id="g31510"
+       transform="translate(0,-3.1750002)">
+      <path
+         sodipodi:type="star"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#010101;stroke-width:0.588059;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="path29056"
+         inkscape:flatsided="true"
+         sodipodi:sides="3"
+         sodipodi:cx="15.634782"
+         sodipodi:cy="103.409"
+         sodipodi:r1="5.8267393"
+         sodipodi:r2="2.9133697"
+         sodipodi:arg1="0.52359878"
+         sodipodi:arg2="1.5707963"
+         inkscape:rounded="0"
+         inkscape:randomized="0"
+         d="m 20.680886,106.32237 -10.092208,0 5.046104,-8.740113 z"
+         transform="matrix(-0.68020393,0,0,-0.68020393,97.394016,254.32664)"
+         inkscape:transform-center-y="0.99084499" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.6465px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Bold';text-align:end;text-anchor:end;fill:#f4fff6;fill-opacity:1;stroke:none;stroke-width:1.97566;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         x="87.515869"
+         y="175.45914"
+         id="text29060"
+         transform="scale(0.94079628,1.0629294)"><tspan
+           sodipodi:role="line"
+           id="tspan29058"
+           style="text-align:end;text-anchor:end;fill:#f4fff6;fill-opacity:1;stroke:none;stroke-width:1.97566"
+           x="87.515869"
+           y="175.45914">Bump version to yyyy.MM.x-beta.1</tspan></text>
+    </g>
+    <g
+       id="g31505"
+       transform="translate(0,-10.803818)">
+      <path
+         sodipodi:type="star"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#010101;stroke-width:0.588059;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="path29074"
+         inkscape:flatsided="true"
+         sodipodi:sides="3"
+         sodipodi:cx="15.634782"
+         sodipodi:cy="103.409"
+         sodipodi:r1="5.8267393"
+         sodipodi:r2="2.9133697"
+         sodipodi:arg1="0.52359878"
+         sodipodi:arg2="1.5707963"
+         inkscape:rounded="0"
+         inkscape:randomized="0"
+         d="m 20.680886,106.32237 -10.092208,0 5.046104,-8.740113 z"
+         transform="matrix(-0.68020393,0,0,-0.68020393,97.394016,282.99959)"
+         inkscape:transform-center-y="0.99084499" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.6358px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Bold';text-align:end;text-anchor:end;fill:#f4fff6;fill-opacity:1;stroke:none;stroke-width:1.97111;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         x="87.328186"
+         y="201.96805"
+         id="text29078"
+         transform="scale(0.93862828,1.0653845)"><tspan
+           sodipodi:role="line"
+           id="tspan29076"
+           style="text-align:end;text-anchor:end;fill:#f4fff6;fill-opacity:1;stroke:none;stroke-width:1.97111"
+           x="87.328186"
+           y="201.96805">Bump version to yyyy.MM.x-beta.2</tspan></text>
+    </g>
+    <g
+       id="g31500"
+       transform="translate(0,-12.697266)">
+      <g
+         id="g31494">
+        <circle
+           style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.1;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+           id="circle13603"
+           cx="259.52957"
+           cy="-86.759178"
+           r="2.9486649"
+           transform="rotate(90)" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.9389px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Bold';text-align:end;text-anchor:end;fill:#f4fff6;fill-opacity:1;stroke:none;stroke-width:2.1;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           x="81.985252"
+           y="261.46213"
+           id="text29082"><tspan
+             sodipodi:role="line"
+             id="tspan29080"
+             style="text-align:end;text-anchor:end;fill:#f4fff6;fill-opacity:1;stroke:none;stroke-width:2.1"
+             x="81.985252"
+             y="261.46213">Another fix</tspan></text>
+      </g>
+    </g>
+    <g
+       id="g31484"
+       transform="translate(0,-12.395077)">
+      <path
+         sodipodi:type="star"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#010101;stroke-width:0.588059;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="path30602"
+         inkscape:flatsided="true"
+         sodipodi:sides="3"
+         sodipodi:cx="15.634782"
+         sodipodi:cy="103.409"
+         sodipodi:r1="5.8267393"
+         sodipodi:r2="2.9133697"
+         sodipodi:arg1="0.52359878"
+         sodipodi:arg2="1.5707963"
+         inkscape:rounded="0"
+         inkscape:randomized="0"
+         d="m 20.680886,106.32237 -10.092208,0 5.046104,-8.740113 z"
+         transform="matrix(-0.68020393,0,0,-0.68020393,97.394016,310.63011)"
+         inkscape:transform-center-y="0.99084499" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.82558px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Bold';text-align:end;text-anchor:end;fill:#f4fff6;fill-opacity:1;stroke:none;stroke-width:2.05181;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         x="83.933479"
+         y="237.23289"
+         id="text30606"
+         transform="scale(0.97705444,1.0234844)"><tspan
+           sodipodi:role="line"
+           id="tspan30604"
+           style="text-align:end;text-anchor:end;fill:#f4fff6;fill-opacity:1;stroke:none;stroke-width:2.05181"
+           x="83.933479"
+           y="237.23289">Bump version to yyyy.MM.x-rc.3</tspan></text>
+    </g>
+    <circle
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.1;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       id="circle30622"
+       cx="316.5452"
+       cy="-106.07808"
+       r="2.9486649"
+       transform="rotate(90)" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.94164px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Bold';text-align:start;text-anchor:start;fill:#f4fff6;fill-opacity:1;stroke:none;stroke-width:2.10116;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       x="111.34943"
+       y="318.39606"
+       id="text30626"
+       transform="scale(1.000556,0.9994443)"><tspan
+         sodipodi:role="line"
+         id="tspan30624"
+         style="text-align:start;text-anchor:start;fill:#f4fff6;fill-opacity:1;stroke:none;stroke-width:2.10116"
+         x="111.34943"
+         y="318.39606">[skip ci] Update CHANGELOG.md (prepend template)</tspan></text>
+    <g
+       id="g31530"
+       transform="translate(0,-0.93168873)">
+      <path
+         sodipodi:type="star"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#010101;stroke-width:0.588059;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="path31409"
+         inkscape:flatsided="true"
+         sodipodi:sides="3"
+         sodipodi:cx="15.634782"
+         sodipodi:cy="103.409"
+         sodipodi:r1="5.8267393"
+         sodipodi:r2="2.9133697"
+         sodipodi:arg1="0.52359878"
+         sodipodi:arg2="1.5707963"
+         inkscape:rounded="0"
+         inkscape:randomized="0"
+         d="m 20.680886,106.32237 -10.092208,0 5.046104,-8.740113 z"
+         transform="matrix(-0.68020393,0,0,-0.68020393,97.394016,340.40392)"
+         inkscape:transform-center-y="0.99084499" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.59888px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Bold';text-align:end;text-anchor:end;fill:#f4fff6;fill-opacity:1;stroke:none;stroke-width:1.95541;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         x="88.037819"
+         y="253.812"
+         id="text31413"
+         transform="scale(0.9311537,1.0739366)"><tspan
+           sodipodi:role="line"
+           id="tspan31411"
+           style="text-align:end;text-anchor:end;fill:#f4fff6;fill-opacity:1;stroke:none;stroke-width:1.95541"
+           x="88.037819"
+           y="253.812">[skip ci] Bump version to yyyy.MM.x</tspan></text>
+    </g>
+    <g
+       id="g31520"
+       transform="translate(0,-1.2094004)">
+      <circle
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.1;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="circle31453"
+         cx="167.46057"
+         cy="-86.759178"
+         r="2.9486649"
+         transform="rotate(90)" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.9389px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Bold';text-align:end;text-anchor:end;fill:#f4fff6;fill-opacity:1;stroke:none;stroke-width:2.1;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         x="81.985252"
+         y="169.40225"
+         id="text31457"><tspan
+           sodipodi:role="line"
+           id="tspan31455"
+           style="text-align:end;text-anchor:end;fill:#f4fff6;fill-opacity:1;stroke:none;stroke-width:2.1"
+           x="81.985252"
+           y="169.40225"> A bugfix</tspan></text>
+    </g>
+    <g
+       id="g31489"
+       transform="translate(0,-11.048591)">
+      <circle
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.1;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="circle31459"
+         cx="250.24344"
+         cy="-86.759178"
+         r="2.9486649"
+         transform="rotate(90)" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.9389px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Bold';text-align:end;text-anchor:end;fill:#f4fff6;fill-opacity:1;stroke:none;stroke-width:2.1;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         x="81.985252"
+         y="251.93762"
+         id="text31463"><tspan
+           sodipodi:role="line"
+           id="tspan31461"
+           style="text-align:end;text-anchor:end;fill:#f4fff6;fill-opacity:1;stroke:none;stroke-width:2.1"
+           x="81.985252"
+           y="251.93762">Update CHANGELOG.md</tspan></text>
+    </g>
+    <g
+       id="g31479"
+       transform="translate(0,-15.824011)">
+      <circle
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.1;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="circle31465"
+         cx="226.61418"
+         cy="-86.759178"
+         r="2.9486649"
+         transform="rotate(90)" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.9389px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Bold';text-align:end;text-anchor:end;fill:#f4fff6;fill-opacity:1;stroke:none;stroke-width:2.1;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         x="81.985252"
+         y="228.54674"
+         id="text31469"><tspan
+           sodipodi:role="line"
+           id="tspan31467"
+           style="text-align:end;text-anchor:end;fill:#f4fff6;fill-opacity:1;stroke:none;stroke-width:2.1"
+           x="81.985252"
+           y="228.54674">Another fix</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:6.92993px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Heavy';text-align:start;text-anchor:start;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2.94658;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       x="144.22688"
+       y="43.544434"
+       id="text34725"><tspan
+         sodipodi:role="line"
+         id="tspan34723"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Heavy';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.94658"
+         x="144.22688"
+         y="43.544434">&lt;Phase 0&gt;  Development</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:7.3694px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Heavy';text-align:start;text-anchor:start;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:3.13344;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       x="144.38757"
+       y="44.135319"
+       id="text31538"><tspan
+         sodipodi:role="line"
+         id="tspan31536"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Heavy';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:3.13344"
+         x="144.38757"
+         y="44.135319" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:6.92993px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2.94658;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       x="144.49963"
+       y="53.154903"
+       id="text31554"><tspan
+         sodipodi:role="line"
+         id="tspan31552"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.94658"
+         x="144.49963"
+         y="53.154903" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:7.36979px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Heavy';text-align:start;text-anchor:start;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:3.13361;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       x="144.38756"
+       y="170.95534"
+       id="text31558"><tspan
+         sodipodi:role="line"
+         id="tspan31556"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Heavy';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:3.13361"
+         x="144.38756"
+         y="170.95534" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:7.3694px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Heavy';text-align:start;text-anchor:start;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:3.13344;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       x="144.38757"
+       y="328.88727"
+       id="text31586"><tspan
+         sodipodi:role="line"
+         id="tspan31584"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Heavy';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:3.13344"
+         x="144.38757"
+         y="328.88727">&lt;Phase 0&gt;  Development</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:7.3694px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Heavy';text-align:start;text-anchor:start;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:3.13344;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       x="144.38757"
+       y="250.58223"
+       id="text31590"><tspan
+         sodipodi:role="line"
+         id="tspan31588"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Heavy';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:3.13344"
+         x="144.38757"
+         y="250.58223" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:6.92993px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2.94658;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       x="144.22937"
+       y="258.64984"
+       id="text31594"><tspan
+         sodipodi:role="line"
+         id="tspan31592"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.94658"
+         x="144.22937"
+         y="258.64984" /></text>
+    <path
+       style="opacity:0.811563;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1;stroke-linecap:round;stroke-dasharray:1, 2;stroke-dashoffset:0;stroke-opacity:0.86372"
+       d="M -4.5401521,118.88765 H 310.33761"
+       id="path32230" />
+    <path
+       style="opacity:0.811563;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1;stroke-linecap:round;stroke-dasharray:1, 2;stroke-dashoffset:0;stroke-opacity:0.86372"
+       d="M -4.5401521,161.36051 H 138.0171 l 9.26471,6.07397 h 163.0558"
+       id="path33150"
+       sodipodi:nodetypes="cccc" />
+    <path
+       style="opacity:0.811563;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1;stroke-linecap:round;stroke-dasharray:1, 2;stroke-dashoffset:0;stroke-opacity:0.86372"
+       d="M -4.5401521,233.84563 H 310.33761"
+       id="path33152" />
+    <path
+       style="opacity:0.811563;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1;stroke-linecap:round;stroke-dasharray:1, 2;stroke-dashoffset:0;stroke-opacity:0.86372"
+       d="M -4.5401521,214.80687 H 310.33761"
+       id="path33154" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:6.92993px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Heavy';text-align:start;text-anchor:start;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2.94658;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       x="144.22688"
+       y="222.38727"
+       id="text33158"><tspan
+         sodipodi:role="line"
+         id="tspan33156"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Heavy';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.94658"
+         x="144.22688"
+         y="222.38727">Mark PR &quot;Ready for Review&quot; </tspan></text>
+    <path
+       style="opacity:0.811563;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1;stroke-linecap:round;stroke-dasharray:1, 2;stroke-dashoffset:0;stroke-opacity:0.86372"
+       d="M 142.58913,37.774699 V 343.4379"
+       id="path33262" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:6.75127px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Heavy';text-align:start;text-anchor:start;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2.87061;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       x="147.90007"
+       y="123.38859"
+       id="text33268"
+       transform="scale(0.97421953,1.0264627)"><tspan
+         sodipodi:role="line"
+         id="tspan33266"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Heavy';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.87061"
+         x="147.90007"
+         y="123.38859">Dispatch Release Manager: 1. Create Target</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:5.20905px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2.21487;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       x="158.17482"
+       y="130.67278"
+       id="text33272"
+       transform="scale(0.9265268,1.0792996)"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.21487"
+         x="158.17482"
+         y="130.67278"
+         id="tspan33282">1. Create the release branch </tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.21487"
+         x="158.17482"
+         y="137.18408"
+         id="tspan1340">2. Draft the release PR</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.21487"
+         x="158.17482"
+         y="143.6954"
+         id="tspan38630">3. Create beta.0 release commit</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.21487"
+         x="158.17482"
+         y="150.20671"
+         id="tspan703" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:5.33117px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2.2668;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       x="152.01111"
+       y="126.92033"
+       id="text33344"
+       transform="scale(0.94825066,1.0545735)"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.2668"
+         x="152.01111"
+         y="126.92033"
+         id="tspan33342">The manager determines the next version number, and performs </tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.03839px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Bold';text-align:start;text-anchor:start;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2.5675;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       x="144.29999"
+       y="190.51035"
+       id="text33353"><tspan
+         sodipodi:role="line"
+         id="tspan33351"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Bold';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.5675"
+         x="144.29999"
+         y="190.51035">Dispatch Release Manager: 2. Create Pre-release</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:5.62212px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2.39051;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       x="144.13104"
+       y="196.92192"
+       id="text33357"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.39051"
+         x="144.13104"
+         y="196.92192"
+         id="tspan33355">With each dispatch, the manager bumps the version up.</tspan></text>
+    <path
+       style="opacity:0.811563;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1;stroke-linecap:round;stroke-dasharray:1, 2;stroke-dashoffset:0;stroke-opacity:0.86372"
+       d="M -4.7465939,259.61085 H 116.28161 l 15.33496,-7.62014 h 178.72104"
+       id="path33359"
+       sodipodi:nodetypes="cccc" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.03839px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Bold';text-align:start;text-anchor:start;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2.5675;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       x="144.29999"
+       y="205.96106"
+       id="text33367"><tspan
+         sodipodi:role="line"
+         id="tspan33365"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Bold';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.5675"
+         x="144.29999"
+         y="205.96106">release-edit-with-push.yml</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:5.36363px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2.28061;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       x="151.09654"
+       y="202.96234"
+       id="text33371"
+       transform="scale(0.95402405,1.0481916)"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.28061"
+         x="151.09654"
+         y="202.96234"
+         id="tspan33369">If CHANGELOG.md is edited, the PR description will be updated.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:5.3072px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2.2566;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       x="152.69923"
+       y="216.63084"
+       id="text33375"
+       transform="scale(0.94398471,1.0593392)"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.2566"
+         x="152.69923"
+         y="216.63084"
+         id="tspan33373">The rc release commit will be created by release-with-ready.yml. </tspan></text>
+    <path
+       sodipodi:type="star"
+       style="fill:#ffffff;fill-opacity:1;stroke:#010101;stroke-width:0.588059;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path23256-9"
+       inkscape:flatsided="true"
+       sodipodi:sides="3"
+       sodipodi:cx="15.634782"
+       sodipodi:cy="103.409"
+       sodipodi:r1="5.8267393"
+       sodipodi:r2="2.9133697"
+       sodipodi:arg1="0.52359878"
+       sodipodi:arg2="1.5707963"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 20.680886,106.32237 -10.092208,0 5.046104,-8.740113 z"
+       transform="matrix(-0.68020393,0,0,-0.68020393,162.51727,150.88723)"
+       inkscape:transform-center-y="0.99084499" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:5.62212px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2.39051;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       x="155.6615"
+       y="83.488991"
+       id="text33407"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.39051"
+         x="155.6615"
+         y="83.488991"
+         id="tspan34804">A release commit is a commit of editing the version</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.39051"
+         x="155.6615"
+         y="90.51664"
+         id="tspan38608">in package.jsons.</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.39051"
+         x="155.6615"
+         y="97.544289"
+         id="tspan35558">A tag and a release are also created for the release</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.39051"
+         x="155.6615"
+         y="104.57194"
+         id="tspan35560">commit. The description of the release is</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.39051"
+         x="155.6615"
+         y="111.59959"
+         id="tspan38616">the content of CHANGELOG.md.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:6.59262px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Heavy';text-align:start;text-anchor:start;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2.80316;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       x="156.04834"
+       y="254.70628"
+       id="text33847"
+       transform="scale(0.9513245,1.051166)"><tspan
+         sodipodi:role="line"
+         id="tspan33845"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Heavy';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.80316"
+         x="156.04834"
+         y="254.70628">= Dispatch Release Manager with  <tspan
+   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:7.05556px;font-family:'Mgen+ 1m';-inkscape-font-specification:'Mgen+ 1m Bold'"
+   id="tspan6254">merge: true</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:5.62212px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2.39051;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       x="152.84511"
+       y="283.25089"
+       id="text34707"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.39051"
+         x="152.84511"
+         y="283.25089"
+         id="tspan705">1. Check availability of merging</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.39051"
+         x="152.84511"
+         y="290.27853"
+         id="tspan709">2. Create the stable release commit </tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.39051"
+         x="152.84511"
+         y="297.30618"
+         id="tspan34703">3. Swap enforcements of rulesets</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.39051"
+         x="152.84511"
+         y="304.33383"
+         id="tspan711">4. Merge the release branch to master</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.39051"
+         x="152.84511"
+         y="311.36148"
+         id="tspan34705">5. Prepend the template to CHANGELOG.md in master</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:5.62212px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2.39051;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       x="144.6602"
+       y="275.44656"
+       id="text34711"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.39051"
+         x="144.6602"
+         y="275.44656"
+         id="tspan34709">The manager performs </tspan></text>
+    <path
+       style="opacity:0.811563;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1;stroke-linecap:round;stroke-dasharray:1, 2;stroke-dashoffset:0;stroke-opacity:0.86372"
+       d="M -4.5401521,320.61886 H 310.33761"
+       id="path34713" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:6.92993px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Heavy';text-align:start;text-anchor:start;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2.94658;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       x="144.22688"
+       y="174.81276"
+       id="text34717"><tspan
+         sodipodi:role="line"
+         id="tspan34715"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Heavy';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.94658"
+         x="144.22688"
+         y="174.81276">&lt;Phase 1&gt; Focus on Release</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:5.62212px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2.39051;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       x="144.13104"
+       y="181.58575"
+       id="text34721"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.39051"
+         x="144.13104"
+         y="181.58575"
+         id="tspan34719">Fix bugs and modify CHANGELOG.md</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:5.62212px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2.39051;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       x="144.13104"
+       y="50.39072"
+       id="text34729"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.39051"
+         x="144.13104"
+         y="50.39072"
+         id="tspan34727">Add features and fix bugs</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:6.92993px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Heavy';text-align:start;text-anchor:start;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2.94658;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       x="144.22688"
+       y="241.33313"
+       id="text34733"><tspan
+         sodipodi:role="line"
+         id="tspan34731"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Heavy';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.94658"
+         x="144.22688"
+         y="241.33313">&lt;Phase 2&gt; Release Candidate</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:5.62212px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2.39051;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       x="144.13104"
+       y="247.90225"
+       id="text34737"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.39051"
+         x="144.13104"
+         y="247.90225"
+         id="tspan34735">Fix bugs and modify CHANGELOG.md if needed</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:6.92993px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Heavy';text-align:start;text-anchor:start;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2.94658;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       x="144.22688"
+       y="259.31287"
+       id="text36330"><tspan
+         sodipodi:role="line"
+         id="tspan36328"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Heavy';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.94658"
+         x="144.22688"
+         y="259.31287">&lt;Phase 3&gt; Publish The Release</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:5.08473px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2.16201;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       x="249.30908"
+       y="127.60001"
+       id="text1321"
+       transform="scale(0.90441523,1.1056868)"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.16201"
+         x="249.30908"
+         y="127.60001"
+         id="tspan1336">4. Replace Unreleased in CHANGE-</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.16201"
+         x="249.30908"
+         y="133.95592"
+         id="tspan4054">        LOG.md with the target version</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.16201"
+         x="249.30908"
+         y="140.31183"
+         id="tspan4056">5. Swap enforcements of rulesets</tspan></text>
+    <g
+       id="g1446"
+       transform="translate(0,13.411881)">
+      <path
+         sodipodi:type="star"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#010101;stroke-width:0.588059;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="path1440"
+         inkscape:flatsided="true"
+         sodipodi:sides="3"
+         sodipodi:cx="15.634782"
+         sodipodi:cy="103.409"
+         sodipodi:r1="5.8267393"
+         sodipodi:r2="2.9133697"
+         sodipodi:arg1="0.52359878"
+         sodipodi:arg2="1.5707963"
+         inkscape:rounded="0"
+         inkscape:randomized="0"
+         d="m 20.680886,106.32237 -10.092208,0 5.046104,-8.740113 z"
+         transform="matrix(-0.68020393,0,0,-0.68020393,97.394016,310.63011)"
+         inkscape:transform-center-y="0.99084499" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.82558px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Bold';text-align:end;text-anchor:end;fill:#f4fff6;fill-opacity:1;stroke:none;stroke-width:2.05181;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         x="83.933479"
+         y="237.23289"
+         id="text1444"
+         transform="scale(0.97705444,1.0234844)"><tspan
+           sodipodi:role="line"
+           id="tspan1442"
+           style="text-align:end;text-anchor:end;fill:#f4fff6;fill-opacity:1;stroke:none;stroke-width:2.05181"
+           x="83.933479"
+           y="237.23289">Bump version to yyyy.MM.x-rc.4</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.23737px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Bold';text-align:start;text-anchor:start;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2.22691;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       x="151.09081"
+       y="162.64371"
+       id="text1749"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Bold';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.22691"
+         x="151.09081"
+         y="162.64371"
+         id="tspan1747">master should be locked by the ruleset</tspan></text>
+    <path
+       style="fill:none;stroke:#ffffff;stroke-width:0.7;stroke-linecap:butt;stroke-dasharray:0.175, 0.175;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow1)"
+       d="M 150.67763,295.7376 109.02674,271.41499"
+       id="path4118" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.23737px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Bold';text-align:start;text-anchor:start;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2.22691;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       x="237.6721"
+       y="175.59584"
+       id="text4930"
+       transform="rotate(30.771516)"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Bold';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.22691"
+         x="237.6721"
+         y="175.59584"
+         id="tspan4928">unlock master</tspan></text>
+    <path
+       style="fill:none;stroke:#ffffff;stroke-width:0.7;stroke-linecap:butt;stroke-dasharray:0.175, 0.175;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow1)"
+       d="m 264.96094,156.56334 c -0.19397,3.768 -3.94885,6.39391 -7.56426,6.57062 -21.38815,1.04541 -98.5162,2.12541 -108.51966,-0.25738 -5.5294,-1.31708 -6.99154,-5.51042 -11.15086,-6.7911 -9.03266,-2.78122 -28.31749,-1.42741 -28.31749,-1.42741"
+       id="path4942"
+       sodipodi:nodetypes="cssac" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:4.80254px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:end;text-anchor:end;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2.04202;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       x="75.331078"
+       y="145.10915"
+       id="text6258"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:end;text-anchor:end;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.04202"
+         x="75.331078"
+         y="145.10915"
+         id="tspan6256">[PR] Release: yyyy.MM.x</tspan></text>
+    <rect
+       style="fill:#36263e;fill-opacity:1;stroke:#ffffff;stroke-width:1.02382;stroke-linecap:butt;stroke-dasharray:2.04762, 1.02382, 0.511907, 1.02382;stroke-dashoffset:0;stroke-opacity:0.86372"
+       id="rect34739-9"
+       width="84.894356"
+       height="39.644527"
+       x="-2.387032"
+       y="283.98297"
+       ry="5.0812593" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:5.30814px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2.25701;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       x="-0.707111"
+       y="275.4584"
+       id="text33407-4"
+       transform="scale(0.94415288,1.0591505)"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.25701"
+         x="-0.707111"
+         y="275.4584"
+         id="tspan38616-0">Q. Why do rcs have</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.25701"
+         x="-0.707111"
+         y="282.09357"
+         id="tspan7709">     continuation number of beta?</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.25701"
+         x="-0.707111"
+         y="288.72876"
+         id="tspan7707">A. To prevent conflict when</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.25701"
+         x="-0.707111"
+         y="295.36392"
+         id="tspan7711">     going back from ready</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.25701"
+         x="-0.707111"
+         y="301.99911"
+         id="tspan7713">     to draft.</tspan></text>
+  </g>
+</svg>
