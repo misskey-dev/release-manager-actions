@@ -15,6 +15,14 @@ on:
         type: string
         description: 'package.jsons to rewrite (json)'
         default: 'package.json'
+      use_external_app_to_release:
+        type: boolean
+        default: false
+    secrets:
+      RELEASE_APP_ID:
+        description: 'App ID for app to create release'
+      RELEASE_APP_PRIVATE_KEY:
+        description: 'Private key for app to create release'
 
 permissions:
   contents: write
@@ -89,7 +97,15 @@ jobs:
           version: ${{ steps.v.outputs.target_version }}
         id: changelog
       # リリースを作成
+      - uses: actions/create-github-app-token@v1
+        id: release-app-token
+        if: inputs.use_external_app_to_release
+        with:
+          app-id: ${{ secrets.RELEASE_APP_ID }}
+          private-key: ${{ secrets.RELEASE_APP_PRIVATE_KEY }}
       - name: Create release
+        env:
+          GITHUB_TOKEN: ${{ inputs.use_external_app_to_release && steps.release-app-token.outputs.token || secrets.GITHUB_TOKEN }}
         run: |
           gh release create "${{ steps.release_version.outputs.result }}" --prerelease --title "${{ steps.release_version.outputs.result }}" --notes "${{ steps.changelog.outputs.changelog }}"
       # PRのnotesを更新

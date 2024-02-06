@@ -1,0 +1,12 @@
+name: on release
+
+on:
+  release:
+    types: [created, published, released, prereleased]
+
+jobs:
+    echo:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - run: echo "${{ github.event.action }}"
