@@ -1,5 +1,8 @@
 CHANGELOG
 =======================================
 
+## 1.1.0
+- Make it possible to specify the app when creating a release, so that the `on: release` workflow can be triggered.
+
 ## 1.0.0
 - The first release
