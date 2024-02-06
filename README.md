@@ -1,4 +1,8 @@
-# release-actions
+# Release Manager
+GitHub Actions workflows for release management of the repository. 
+
+## Flow
+![](flow.png)
 
 ## Installation
 ### workflows you should copy
@@ -15,7 +19,7 @@ The core workflow that is manually triggered. It has three functions:
 This workflow changes the description of the PR when CHANGELOG.md is changed.
 
 #### release-with-ready.yml
-Release rc when PR is ready for review.
+Release rc when PR becomes ready for review.
 
 ## If you have `on: release` workflows...
 If you have workflow(s) with `on: release`, you must create an GitHub App with following settings and set `RELEASE_APP_ID` and `RELEASE_APP_PRIVATE_KEY` as secrets.  
