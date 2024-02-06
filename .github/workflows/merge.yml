@@ -191,7 +191,7 @@ jobs:
       # Merge
       # (Retry because mergeable can unknown after push)
       - name: Merge PR
-        uses: prichey/retry@c92c7ba
+        uses: prichey/retry@c92c7ba2f5f4d0b3b7b2b04cc5c6672f9c884a3f
         with:
           command: |
             gh pr merge ${{ inputs.pr_number }} --merge
