@@ -5,20 +5,23 @@ GitHub Actions workflows for release management of the repository.
 ![](flow.png)
 
 ## Installation
-### workflows you should copy
+### 1. Variable(s) to set
+- If you want to rewrite package.json(s), set `PACKAGE_JSONS_TO_REWRITE` according to [the Variables clause](#variables).
+
+### 2. workflows you should copy
 Copy and use these workflows.
 
-#### release-with-dispatch.yml (Release Manager [Dispatch])
+#### ⅰ. release-with-dispatch.yml (Release Manager [Dispatch])
 The core workflow that is manually triggered. It has three functions:
 
 1. Prepare release - create release branch, beta.0 tag, and PR
 2. Issue a pre-release version during the release process
 3. Issue a stable release when you check `MERGE RELEASE BRANCH TO MAIN`
 
-#### release-edit-with-push.yml
+#### ⅱ. release-edit-with-push.yml
 This workflow changes the description of the PR when CHANGELOG.md is changed.
 
-#### release-with-ready.yml
+#### ⅲ. release-with-ready.yml
 Release rc when PR becomes ready for review.
 
 ## If you have `on: release` workflows...
