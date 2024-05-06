@@ -1,6 +1,9 @@
 CHANGELOG
 =======================================
 
+## 1.1.2
+- Fix: Creating Pre-release always creates rc
+
 ## 1.1.1
 - Fix: release-with-ready not creating releases in external apps
 
