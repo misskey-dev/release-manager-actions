@@ -54,7 +54,7 @@ jobs:
         uses: actions/script@v7
         env:
           CURRENT_VERSION: ${{ steps.v.outputs.current_version }}
-          pr_is_draft: steps.get_pr.outputs.pr_is_draft
+          pr_is_draft: ${{ steps.get_pr.outputs.pr_is_draft }}
         with:
           script: |
             const [major, minor, _patch, _pre] = process.env.CURRENT_VERSION.split('.');
