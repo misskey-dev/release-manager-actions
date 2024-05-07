@@ -21,10 +21,13 @@ on:
         default: |
           ## Unreleased
           -
-          
       use_external_app_to_release:
         type: boolean
         default: false
+      indent:
+        type: string
+        description: '`tab` or number of spaces'
+        default: tab
     secrets:
       RELEASE_APP_ID:
         description: 'App ID for app to create release'
@@ -154,7 +157,7 @@ jobs:
         with:
           version: ${{ steps.v.outputs.target_version }}
           package_jsons: ${{ inputs.package_jsons_to_rewrite }}
-
+          indent: ${{ inputs.indent }}
       # commit, push
       - name: Commit version
         run: |

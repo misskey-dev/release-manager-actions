@@ -85,4 +85,6 @@ For example, create a ruleset with enabling `Restrict updates` (to lock the main
 <dd>See Ruleset management</dd>
 <dt><code>PACKAGE_JSONS_TO_REWRITE</code> <i>(optional)</i></dt>
 <dd>package.jsons to rewrite version<br>e.g. <code>"package.json" "packages/misskey-js/package.json"</code></dd>
+<dt><code>INDENT</code> <i>(optional)</i></dt>
+<dd>Indent type of package.json.<br><code>tab</code> or number of spaces</dd>
 </dl>
