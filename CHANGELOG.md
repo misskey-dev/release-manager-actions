@@ -2,7 +2,7 @@ CHANGELOG
 =======================================
 
 ## 1.2.0
-*The copied actions need to be replaced by the rewritten actions.
+The copied actions need to be replaced by the rewritten actions like this: https://github.com/misskey-dev/misskey/commit/f5d57c02c7edbf71c4f2eaff789dfd093513027d .
 
 - The `INDENT` variable allows selection of the indentation format of `package.json`.
 
