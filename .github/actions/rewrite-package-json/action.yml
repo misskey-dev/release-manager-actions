@@ -8,6 +8,7 @@ inputs:
     description: "package.jsons to rewrite"
     default: 'package.json'
   indent:
+    type: string
     description: `tab` or number of spaces
     default: tab
 runs:
