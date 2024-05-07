@@ -6,7 +6,7 @@ GitHub Actions workflows for release management of the repository.
 
 ## Installation
 ### 1. Variable(s) to set
-- If you want to rewrite package.json(s), set `PACKAGE_JSONS_TO_REWRITE` according to [the Variables clause](#variables).
+- If you want to rewrite package.json(s), set `PACKAGE_JSONS_TO_REWRITE` and `INDENT` according to [the Variables clause](#variables).
 
 ### 2. workflows you should copy
 Copy and use these workflows.
@@ -77,14 +77,14 @@ For example, create a ruleset with enabling `Restrict updates` (to lock the main
 ### Variables
 
 <dl>
+<dt><code>PACKAGE_JSONS_TO_REWRITE</code> <i>(optional)</i></dt>
+<dd>package.jsons to rewrite version<br>e.g. <code>"package.json" "packages/misskey-js/package.json"</code></dd>
+<dt><code>INDENT</code> <i>(required when PACKAGE_JSONS_TO_REWRITE be set)</i></dt>
+<dd>Indent type of package.json.<br><code>tab</code> or number of spaces</dd>
 <dt><code>USE_RELEASE_APP</code></dt>
 <dd>See "If you have `on: release` workflows..."</dd>
 <dt><code>RULESET_ID_WITHIN_RELEASE</code> <i>(optional)</i></dt>
 <dd>See Ruleset management</dd>
 <dt><code>RULESET_ID_OUT_OF_RELEASE</code> <i>(optional)</i></dt>
 <dd>See Ruleset management</dd>
-<dt><code>PACKAGE_JSONS_TO_REWRITE</code> <i>(optional)</i></dt>
-<dd>package.jsons to rewrite version<br>e.g. <code>"package.json" "packages/misskey-js/package.json"</code></dd>
-<dt><code>INDENT</code> <i>(optional)</i></dt>
-<dd>Indent type of package.json.<br><code>tab</code> or number of spaces</dd>
 </dl>
