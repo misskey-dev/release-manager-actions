@@ -18,6 +18,10 @@ on:
       use_external_app_to_release:
         type: boolean
         default: false
+      indent:
+        type: string
+        description: '`tab` or number of spaces'
+        default: tab
     secrets:
       RELEASE_APP_ID:
         description: 'App ID for app to create release'
@@ -83,6 +87,7 @@ jobs:
         with:
           version: ${{ steps.release_version.outputs.result }}
           package_jsons: ${{ inputs.package_jsons_to_rewrite }}
+          indent: ${{ inputs.indent }}
       # release/ブランチにpush、タグを作成
       - name: Commit version
         run: |

@@ -7,6 +7,9 @@ inputs:
   package_jsons:
     description: "package.jsons to rewrite"
     default: 'package.json'
+  indent:
+    description: '`tab` or number of spaces'
+    default: tab
 runs:
   using: "composite"
   steps:
@@ -15,6 +18,8 @@ runs:
       run: |
         declare -a package_jsons=(${{ inputs.package_jsons }})
         for package_json in ${package_jsons[@]}; do
-          jq '.version = "${{ inputs.version }}"' "${package_json}" > "${package_json}.tmp" && mv "${package_json}.tmp" "${package_json}"
+          jq $INDENT_OPTION '.version = "${{ inputs.version }}"' "${package_json}" > "${package_json}.tmp" && mv "${package_json}.tmp" "${package_json}"
         done
       shell: bash
+      env:
+        INDENT_OPTION: ${{ inputs.indent != 'tab' && format('--indent {0}', inputs.indent) || '--tab' }}
