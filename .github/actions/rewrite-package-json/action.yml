@@ -22,4 +22,4 @@ runs:
         done
       shell: bash
       env:
-        INDENT_OPTION: ${{ inputs.indent != 'tab' && '--tab' || format('--indent {0}', inputs.indent) }}
+        INDENT_OPTION: ${{ inputs.indent != 'tab' && format('--indent {0}', inputs.indent) || '--tab' }}
