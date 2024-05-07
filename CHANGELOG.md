@@ -1,6 +1,18 @@
 CHANGELOG
 =======================================
 
+## Unreleased
+
+### General
+-
+
+### Client
+-
+
+### Server
+-
+
+
 ## 2024.5.2
 
 ### General
