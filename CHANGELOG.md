@@ -1,6 +1,11 @@
 CHANGELOG
 =======================================
 
+## 1.2.0
+*The copied actions need to be replaced by the rewritten actions.
+
+- The `INDENT` variable allows selection of the indentation format of `package.json`.
+
 ## 1.1.2
 - Fix: Creating Pre-release always creates rc
 
