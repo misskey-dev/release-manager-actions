@@ -18,6 +18,6 @@ runs:
       run: |
         declare -a package_jsons=(${{ inputs.package_jsons }})
         for package_json in ${package_jsons[@]}; do
-          jq ${{ input.indent != 'tab' ? '--tab' : `--indent ${input.indent || 2}` }} '.version = "${{ inputs.version }}"' "${package_json}" > "${package_json}.tmp" && mv "${package_json}.tmp" "${package_json}"
+          jq ${{ input.indent != 'tab' && '--tab' || format('--indent ${0}', input.indent) }} '.version = "${{ inputs.version }}"' "${package_json}" > "${package_json}.tmp" && mv "${package_json}.tmp" "${package_json}"
         done
       shell: bash
