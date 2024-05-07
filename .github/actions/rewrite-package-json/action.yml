@@ -15,6 +15,6 @@ runs:
       run: |
         declare -a package_jsons=(${{ inputs.package_jsons }})
         for package_json in ${package_jsons[@]}; do
-          jq '.version = "${{ inputs.version }}"' "${package_json}" > "${package_json}.tmp" && mv "${package_json}.tmp" "${package_json}"
+          jq '.version = "${{ inputs.version }}"' "${package_json}" > "${package_json}.tmp" && mv "${package_json}.tmp" "${package_json}" | unexpand -t 2 --first-only
         done
       shell: bash
