@@ -91,10 +91,13 @@ jobs:
       # release/ブランチにpush、タグを作成
       - name: Commit version
         run: |
-          git commit -am "Bump version to ${{ steps.release_version.outputs.result }}"
-          git push origin HEAD:release/${{ steps.v.outputs.target_version }}
-          git tag "${{ steps.release_version.outputs.result }}"
-          git push origin "${{ steps.release_version.outputs.result }}"
+          git commit -am "Bump version to $VERSION_NAME"
+          git push origin "HEAD:release/$TARGET_VERSION"
+          git tag "$VERSION_NAME"
+          git push origin "$VERSION_NAME"
+        env:
+          VERSION_NAME: ${{ steps.release_version.outputs.result }}
+          TARGET_VERSION: ${{ steps.v.outputs.target_version }}
       # CHANGELOG.mdの内容を取得
       - name: Get changelog
         uses: misskey-dev/release-manager-actions/.github/actions/get-changelog@v1
@@ -111,8 +114,10 @@ jobs:
       - name: Create release
         env:
           GITHUB_TOKEN: ${{ inputs.use_external_app_to_release && steps.release-app-token.outputs.token || secrets.GITHUB_TOKEN }}
+          VERSION_NAME: ${{ steps.release_version.outputs.result }}
+          CHANGELOG: ${{ steps.changelog.outputs.changelog }}
         run: |
-          gh release create "${{ steps.release_version.outputs.result }}" --prerelease --title "${{ steps.release_version.outputs.result }}" --notes "${{ steps.changelog.outputs.changelog }}"
+          gh release create "$VERSION_NAME" --prerelease --title "$VERSION_NAME" --notes "$CHANGELOG"
       # PRのnotesを更新
       # (通常release-edit-with-pushで更新されているためここで更新されることはない)
       #- name: Update PR

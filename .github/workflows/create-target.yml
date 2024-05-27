@@ -51,8 +51,10 @@ jobs:
       - uses: actions/checkout@v4
       - name: git config
         run: |
-          git config --local user.email "${{ inputs.user }}@users.noreply.github.com"
-          git config --local user.name "${{ inputs.user }}"
+          git config --local user.email "$USER@users.noreply.github.com"
+          git config --local user.name "$USER"
+        env:
+          USER: ${{ inputs.user }}
       # jqでpackage.jsonから現在のバージョンを取得
       - name: Get current version
         run: |
@@ -69,8 +71,10 @@ jobs:
           result-encoding: string
         id: target_version
       - name: beta 0
-        run: echo "result=${{ steps.target_version.outputs.result }}-beta.0" >> $GITHUB_OUTPUT
+        run: echo "result=$TARGET_VERSION-beta.0" >> $GITHUB_OUTPUT
         id: release_version
+        env:
+          TARGET_VERSION: ${{ steps.target_version.outputs.result }}
       # バージョンをpackage.jsonに書き込み
       - name: Write version
         uses: misskey-dev/release-manager-actions/.github/actions/rewrite-package-json@v1
@@ -87,14 +91,19 @@ jobs:
       # CHANGELOG.mdのバージョンの書き換え
       - name: Modify CHANGELOG.md
         run: |
-          sed -i 's/## Unreleased/## ${{ steps.target_version.outputs.result }}/' CHANGELOG.md
+          sed -i "s/## Unreleased/## $TARGET_VERSION/" CHANGELOG.md
+        env:
+          TARGET_VERSION: ${{ steps.target_version.outputs.result }}
       # release/ブランチとタグを作成
       - name: Commit version
         run: |
-          git commit -am "Bump version to ${{ steps.release_version.outputs.result }}"
-          git push origin HEAD:release/${{ steps.target_version.outputs.result }}
-          git tag "${{ steps.release_version.outputs.result }}"
-          git push origin "${{ steps.release_version.outputs.result }}"
+          git commit -am "Bump version to $VERSION_NAME"
+          git push origin "HEAD:release/$TARGET_VERSION"
+          git tag "$VERSION_NAME"
+          git push origin "$VERSION_NAME"
+        env:
+          VERSION_NAME: ${{ steps.release_version.outputs.result }}
+          TARGET_VERSION: ${{ steps.target_version.outputs.result }}
       # リリースを作成
       - uses: actions/create-github-app-token@v1
         id: release-app-token
@@ -105,12 +114,17 @@ jobs:
       - name: Create release
         env:
           GITHUB_TOKEN: ${{ inputs.use_external_app_to_release && steps.release-app-token.outputs.token || secrets.GITHUB_TOKEN }}
+          VERSION_NAME: ${{ steps.release_version.outputs.result }}
+          CHANGELOG: ${{ steps.changelog.outputs.changelog }}
         run: |
-          gh release create "${{ steps.release_version.outputs.result }}" --prerelease --title "${{ steps.release_version.outputs.result }}" --notes "${{ steps.changelog.outputs.changelog }}"
+          gh release create "$VERSION_NAME" --prerelease --title "$VERSION_NAME" --notes "$CHANGELOG"
       # PRを作成
       - name: Create PR
         run: |
-          gh pr create --draft --title "Release: ${{ steps.target_version.outputs.result }}" --body "${{ steps.changelog.outputs.changelog }}" --head release/${{ steps.target_version.outputs.result }} --base ${{ github.ref_name }}
+          gh pr create --draft --title "Release: TARGET_VERSION" --body "$CHANGELOG" --head "release/$TARGET_VERSION" --base "$GITHUB_REF_NAME"
+        env:
+          TARGET_VERSION: ${{ steps.target_version.outputs.result }}
+          CHANGELOG: ${{ steps.changelog.outputs.changelog }}
 
       # rulesetを切り替え
       - uses: actions/create-github-app-token@v1
