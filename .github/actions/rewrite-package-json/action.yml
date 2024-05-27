@@ -16,10 +16,12 @@ runs:
     # バージョンをpackage.jsonに書き込み
     - name: Write version
       run: |
+        # keep using ${{ inputs.package_jsons }} for array declaration
         declare -a package_jsons=(${{ inputs.package_jsons }})
         for package_json in ${package_jsons[@]}; do
-          jq $INDENT_OPTION '.version = "${{ inputs.version }}"' "${package_json}" > "${package_json}.tmp" && mv "${package_json}.tmp" "${package_json}"
+          jq $INDENT_OPTION ".version = \"$VERSION\"" "${package_json}" > "${package_json}.tmp" && mv "${package_json}.tmp" "${package_json}"
         done
       shell: bash
       env:
         INDENT_OPTION: ${{ inputs.indent != 'tab' && format('--indent {0}', inputs.indent) || '--tab' }}
+        VERSION: ${{ inputs.version }}
