@@ -1,6 +1,16 @@
 CHANGELOG
 =======================================
 
+## 1.2.1
+The copied actions need to be replaced like following:
+
+* release-edit-with-push.yml  
+  https://github.com/misskey-dev/release-manager-actions/commit/c9287a3b002a6b6a765bdfcbe4597f88f581bafc#diff-e203de9569f7e3142efd374c0dca7e88b6d3fa704c51dd02d55b0a2d3810f6de
+* release-with-ready.yml
+  https://github.com/misskey-dev/release-manager-actions/commit/c9287a3b002a6b6a765bdfcbe4597f88f581bafc#diff-72b079e73412ba22b09f29c84b4205de9370875dc1aa56f9b27a7797941e578e
+
+- Eliminated the possibility of code execution and token theft via external input
+
 ## 1.2.0
 The copied actions need to be replaced by the rewritten actions like this: https://github.com/misskey-dev/misskey/commit/f5d57c02c7edbf71c4f2eaff789dfd093513027d .
 
