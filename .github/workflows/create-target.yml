@@ -121,7 +121,7 @@ jobs:
       # PRを作成
       - name: Create PR
         run: |
-          gh pr create --draft --title "Release: TARGET_VERSION" --body "$CHANGELOG" --head "release/$TARGET_VERSION" --base "$GITHUB_REF_NAME"
+          gh pr create --draft --title "Release: $TARGET_VERSION" --body "$CHANGELOG" --head "release/$TARGET_VERSION" --base "$GITHUB_REF_NAME"
         env:
           TARGET_VERSION: ${{ steps.target_version.outputs.result }}
           CHANGELOG: ${{ steps.changelog.outputs.changelog }}
