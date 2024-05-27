@@ -95,14 +95,18 @@ jobs:
       # mergeable: UNKNOWNを回避したい
       - name: 'Pre-fetch PR data'
         run: |
-          gh pr view ${{ inputs.pr_number }} --json mergeable
+          gh pr view "$PR_NUMBER" --json mergeable
+        env:
+          PR_NUMBER: ${{ inputs.pr_number }}
       - name: Sleep
         run: sleep 5s
 
       - name: 'Fetch PR data'
         id: pr-data
         run: |
-          echo "data=$(gh pr view ${{ inputs.pr_number }} --json baseRefName,reviewDecision,isDraft,mergeStateStatus,statusCheckRollup,mergeable)" >> $GITHUB_OUTPUT
+          echo "data=$(gh pr view "$PR_NUMBER" --json baseRefName,reviewDecision,isDraft,mergeStateStatus,statusCheckRollup,mergeable)" >> $GITHUB_OUTPUT
+        env:
+          PR_NUMBER: ${{ inputs.pr_number }}
       - name: 'Check Mergeable: compare'
         uses: actions/script@v7
         env:
@@ -162,9 +166,11 @@ jobs:
       - name: Commit version
         run: |
           if [ -n "$(git status --porcelain)" ]; then
-            git commit -am "[skip ci] Release: ${{ steps.v.outputs.target_version }}"
-            git push origin HEAD:release/${{ steps.v.outputs.target_version }}
+            git commit -am "[skip ci] Release: $TARGET_VERSION"
+            git push origin "HEAD:release/$TARGET_VERSION"
           fi
+        env:
+          TARGET_VERSION: ${{ steps.v.outputs.target_version }}
 
       # CHANGELOG.mdの内容を取得
       - name: Get changelog
@@ -175,8 +181,10 @@ jobs:
 
       - name: Create tag
         run: |
-          git tag "${{ steps.v.outputs.target_version }}"
-          git push origin "${{ steps.v.outputs.target_version }}"
+          git tag "$TARGET_VERSION"
+          git push origin "$TARGET_VERSION"
+        env:
+          TARGET_VERSION: ${{ steps.v.outputs.target_version }}
 
       # リリースを作成
       - uses: actions/create-github-app-token@v1
@@ -188,8 +196,10 @@ jobs:
       - name: Create release
         env:
           GITHUB_TOKEN: ${{ inputs.use_external_app_to_release && steps.release-app-token.outputs.token || secrets.GITHUB_TOKEN }}
+          TARGET_VERSION: ${{ steps.v.outputs.target_version }}
+          CHANGELOG: ${{ steps.changelog.outputs.changelog }}
         run: |
-          gh release create "${{ steps.v.outputs.target_version }}" --title "${{ steps.v.outputs.target_version }}" --notes "${{ steps.changelog.outputs.changelog }}"
+          gh release create "$TARGET_VERSION" --title "$TARGET_VERSION" --notes "$CHANGELOG"
 
       # Merge
       # (Retry because mergeable can unknown after push)
@@ -197,10 +207,12 @@ jobs:
         uses: prichey/retry@c92c7ba2f5f4d0b3b7b2b04cc5c6672f9c884a3f
         with:
           command: |
-            gh pr merge ${{ inputs.pr_number }} --merge
+            gh pr merge "$PR_NUMBER" --merge
           timeout_seconds: 30
           max_attempts: 3
           retry_wait_seconds: 5
+        env:
+          PR_NUMBER: ${{ inputs.pr_number }}
 
       # Declear base branch
       - name: Declear base branch
@@ -221,4 +233,6 @@ jobs:
       - name: Update CHANGELOG.md (prepend template)
         run: |
           git commit -am "[skip ci] Update CHANGELOG.md (prepend template)"
-          git push origin HEAD:${{ steps.declear-base-branch.outputs.base_branch }}
+          git push origin "HEAD:$BASE_BRANCH"
+        env:
+          BASE_BRANCH: ${{ steps.declear-base-branch.outputs.base_branch }}
