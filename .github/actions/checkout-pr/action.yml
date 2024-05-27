@@ -20,18 +20,22 @@ runs:
     #- uses: actions/checkout@v4
     - name: git config
       run: |
-        git config --local user.email "${{ inputs.user }}@users.noreply.github.com"
-        git config --local user.name "${{ inputs.user }}"
+        git config --local user.email "$USER@users.noreply.github.com"
+        git config --local user.name "$USER"
       shell: bash
+      env:
+        USER: ${{ inputs.user }}
     # pr_numberからPR情報を取得
     - name: Get PR
       run: |
-        pr_json=$(gh pr view ${{ inputs.pr_number }} --json isDraft,headRefName)
+        pr_json=$(gh pr view "$PR_NUMBER" --json isDraft,headRefName)
         echo "pr_is_draft=$(echo $pr_json | jq -r '.isDraft')" >> $GITHUB_OUTPUT
         echo "pr_head_ref=$(echo $pr_json | jq -r '.headRefName')" >> $GITHUB_OUTPUT
         echo $pr_json
       id: get_pr
       shell: bash
+      env:
+        PR_NUMBER: ${{ inputs.pr_number }}
     - uses: actions/checkout@v4
       with:
         ref: ${{ steps.get_pr.outputs.pr_head_ref }}
