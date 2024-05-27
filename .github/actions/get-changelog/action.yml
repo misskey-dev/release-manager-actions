@@ -16,8 +16,10 @@ runs:
       run: |
         {
           echo 'changelog<<EOF'
-          sed -n '/## ${{ inputs.version }}/,/^## /p' CHANGELOG.md | sed -e 1d -e '$d'
+          sed -n "/## $VERSION/,/^## /p" CHANGELOG.md | sed -e 1d -e '$d'
           echo EOF
         } >> $GITHUB_OUTPUT
       id: changelog
       shell: bash
+      env:
+        VERSION: ${{ inputs.version }}
