@@ -5,6 +5,7 @@ CHANGELOG
 
 ### General
 - test
+- test2
 
 ### Client
 -
