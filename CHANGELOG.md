@@ -4,7 +4,7 @@ CHANGELOG
 ## 2024.6.0
 
 ### General
--
+- test
 
 ### Client
 -
