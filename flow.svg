@@ -9,7 +9,7 @@
    id="svg5"
    sodipodi:docname="flow.svg"
    inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
-   inkscape:export-filename="新規ドキュメント 1.2024_01_24_04_14_24.0.png"
+   inkscape:export-filename="../Desktop/新規ドキュメント 1.2024_01_24_04_14_24.0.png"
    inkscape:export-xdpi="120"
    inkscape:export-ydpi="120"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -28,8 +28,8 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="0.68207245"
-     inkscape:cx="616.50342"
-     inkscape:cy="589.3802"
+     inkscape:cx="540.26519"
+     inkscape:cy="583.51572"
      inkscape:window-width="1920"
      inkscape:window-height="1200"
      inkscape:window-x="0"
@@ -1177,5 +1177,27 @@
          x="144.13104"
          y="174.70668"
          id="tspan4154">Review the release with Git or GitHub's diff view. </tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:4.9389px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Heavy';text-align:end;text-anchor:end;fill:#fe0303;stroke:#ff0303;stroke-width:4.16801;stroke-linecap:round;stroke-opacity:1;paint-order:markers stroke fill"
+       x="90.915558"
+       y="42.596062"
+       id="text6208"><tspan
+         sodipodi:role="line"
+         id="tspan6206"
+         style="stroke-width:4.168"
+         x="90.915558"
+         y="42.596062" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:5.62212px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2.39051;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+       x="83.014336"
+       y="44.18829"
+       id="text6212"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Medium';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.39051"
+         x="83.014336"
+         y="44.18829"
+         id="tspan6210">(default branch)</tspan></text>
   </g>
 </svg>
