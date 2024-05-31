@@ -36,6 +36,6 @@ runs:
       shell: bash
       env:
         PR_NUMBER: ${{ inputs.pr_number }}
-    #- uses: actions/checkout@v4
-    #  with:
-    #    ref: ${{ steps.get_pr.outputs.pr_head_ref }}
+    - uses: actions/checkout@v4
+      with:
+        ref: ${{ steps.get_pr.outputs.pr_head_ref }}
