@@ -25,7 +25,7 @@ This workflow changes the description of the PR when CHANGELOG.md is changed.
 Release rc when PR becomes ready for review.
 
 ## If you have `on: release` workflows...
-If you have workflow(s) with `on: release`, you must create an GitHub App with following settings and set `RELEASE_APP_ID` and `RELEASE_APP_PRIVATE_KEY` as secrets.  
+If you have workflow(s) with `on: release`, you must create a GitHub App with following settings and set `RELEASE_APP_ID` and `RELEASE_APP_PRIVATE_KEY` as secrets.  
 Reference: https://github.com/actions/create-github-app-token/tree/v1/
 
 |App Settings||
