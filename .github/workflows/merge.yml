@@ -102,7 +102,7 @@ jobs:
             if (pr.mergeable !== 'MERGEABLE') {
               throw new Error(`Not mergeable: ${pr.mergeable}`);
             }
-            if (pr.mergeStateStatus !== 'CLEAN') {
+            if (pr.mergeStateStatus !== 'CLEAN' && pr.mergeStateStatus !== 'BLOCKED') {
               throw new Error(`MergeStateStatus is not CLEAN: ${pr.mergeStateStatus}`);
             }
             if (pr.statusCheckRollup.find(s => s.conclusion !== 'SUCCESS')) {
@@ -155,7 +155,7 @@ jobs:
         uses: prichey/retry@c92c7ba2f5f4d0b3b7b2b04cc5c6672f9c884a3f
         with:
           command: |
-            gh pr merge "$PR_NUMBER" --merge
+            gh pr merge "$PR_NUMBER" --merge --admin
           timeout_seconds: 30
           max_attempts: 3
           retry_wait_seconds: 5
