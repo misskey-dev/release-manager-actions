@@ -120,7 +120,7 @@ jobs:
       - name: Commit version
         run: |
           if [ -n "$(git status --porcelain)" ]; then
-            git commit -am "[skip ci] Release: $TARGET_VERSION"
+            git commit -am "Release: $TARGET_VERSION"
             git push
           fi
         env:

@@ -28,14 +28,14 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="0.68207245"
-     inkscape:cx="650.95724"
-     inkscape:cy="512.40891"
+     inkscape:cx="611.372"
+     inkscape:cy="849.61649"
      inkscape:window-width="1920"
      inkscape:window-height="1147"
      inkscape:window-x="0"
      inkscape:window-y="25"
      inkscape:window-maximized="0"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g619"
      showguides="false"
      inkscape:lockguides="true">
     <sodipodi:guide
@@ -475,39 +475,6 @@
          style="text-align:start;text-anchor:start;fill:#f4fff6;fill-opacity:1;stroke:none;stroke-width:2.10116"
          x="111.34943"
          y="318.39606">[skip ci] Update CHANGELOG.md (prepend template)</tspan></text>
-    <g
-       id="g31530"
-       transform="translate(19.318904,-2.4034851)">
-      <path
-         sodipodi:type="star"
-         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#010101;stroke-width:0.588059;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-         id="path31409"
-         inkscape:flatsided="true"
-         sodipodi:sides="3"
-         sodipodi:cx="15.634782"
-         sodipodi:cy="103.409"
-         sodipodi:r1="5.8267393"
-         sodipodi:r2="2.9133697"
-         sodipodi:arg1="0.52359878"
-         sodipodi:arg2="1.5707963"
-         inkscape:rounded="0"
-         inkscape:randomized="0"
-         d="m 20.680886,106.32237 -10.092208,0 5.046104,-8.740113 z"
-         transform="matrix(-0.68020393,0,0,-0.68020393,97.394016,340.40392)"
-         inkscape:transform-center-y="0.99084499" />
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.59888px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Bold';text-align:end;text-anchor:end;fill:#f4fff6;fill-opacity:1;stroke:none;stroke-width:1.95541;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-         x="88.037819"
-         y="253.812"
-         id="text31413"
-         transform="scale(0.9311537,1.0739366)"><tspan
-           sodipodi:role="line"
-           id="tspan31411"
-           style="text-align:end;text-anchor:end;fill:#f4fff6;fill-opacity:1;stroke:none;stroke-width:1.95541"
-           x="88.037819"
-           y="253.812">[skip ci] Bump version to yyyy.MM.x</tspan></text>
-    </g>
     <g
        id="g31520"
        transform="translate(19.318904,-2.6811968)">
@@ -1211,5 +1178,38 @@
          x="-1.0208381"
          y="44.18829"
          id="tspan3312">(Locked by ruleset) </tspan></text>
+    <g
+       id="g619"
+       transform="translate(19.318904,26.283348)">
+      <path
+         sodipodi:type="star"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#010101;stroke-width:0.588059;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="path613"
+         inkscape:flatsided="true"
+         sodipodi:sides="3"
+         sodipodi:cx="15.634782"
+         sodipodi:cy="103.409"
+         sodipodi:r1="5.8267393"
+         sodipodi:r2="2.9133697"
+         sodipodi:arg1="0.52359878"
+         sodipodi:arg2="1.5707963"
+         inkscape:rounded="0"
+         inkscape:randomized="0"
+         d="m 20.680886,106.32237 -10.092208,0 5.046104,-8.740113 z"
+         transform="matrix(-0.68020393,0,0,-0.68020393,97.394016,310.63011)"
+         inkscape:transform-center-y="0.99084499" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.82558px;font-family:'GenEi Univer Sans';-inkscape-font-specification:'GenEi Univer Sans Bold';text-align:end;text-anchor:end;fill:#f4fff6;fill-opacity:1;stroke:none;stroke-width:2.05181;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         x="83.933479"
+         y="237.23289"
+         id="text617"
+         transform="scale(0.97705444,1.0234844)"><tspan
+           sodipodi:role="line"
+           id="tspan615"
+           style="text-align:end;text-anchor:end;fill:#f4fff6;fill-opacity:1;stroke:none;stroke-width:2.05181"
+           x="83.933479"
+           y="237.23289">Bump version to yyyy.MM.x</tspan></text>
+    </g>
   </g>
 </svg>
