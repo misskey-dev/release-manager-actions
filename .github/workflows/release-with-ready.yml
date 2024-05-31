@@ -19,13 +19,24 @@ jobs:
       pr_number: ${{ steps.get_pr.outputs.pr_number }}
     steps:
       - uses: actions/checkout@v4
-      # headが$GITHUB_REF_NAMEかつopenのPRを1つ取得
+      # headが$GITHUB_REF_NAME, baseが$STABLE_BRANCHかつopenのPRを1つ取得
       - name: Get PRs
         run: |
           echo "pr_number=$(gh pr list --limit 1 --search "head:$GITHUB_REF_NAME base:$STABLE_BRANCH is:open" --json number  --jq '.[] | .number')" >> $GITHUB_OUTPUT
         id: get_pr
         env:
           STABLE_BRANCH: ${{ vars.STABLE_BRANCH }}
+
+  echo:
+    runs-on: ubuntu-latest
+    needs: get-pr
+    steps:
+      - run: |
+          echo "API_PR_NUMBER: $API_PR_NUMBER"
+          echo "EVENT_PR_NUMBER: $EVENT_PR_NUMBER"
+        env:
+          API_PR_NUMBER: ${{ needs.get-pr.outputs.pr_number }}
+          EVENT_PR_NUMBER: ${{ github.event.pull_request.number }}
 
   release:
     uses: joinmisskey/release-actions/.github/workflows/create-prerelease.yml@main
