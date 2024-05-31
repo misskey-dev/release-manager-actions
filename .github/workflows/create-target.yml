@@ -48,7 +48,7 @@ env:
 
 jobs:
   create-target:
-    name: "Create release branch, tag, and PR"
+    name: "Create PR and tag"
     runs-on: ubuntu-latest
     # 日付ベースでリリースを作成
     steps:
