@@ -88,7 +88,7 @@ jobs:
               throw new Error('PR is draft');
             }
             if (pr.reviewDecision !== 'APPROVED') {
-              throw new Error(`reviewDecision is not APPROVED: ${pr.reviewDecision}`);
+              throw new Error(`reviewDecision is not APPROVED (${pr.reviewDecision}). You must approve the PR before merging.`);
             }
             if (pr.mergeable !== 'MERGEABLE') {
               throw new Error(`Not mergeable: ${pr.mergeable}`);
