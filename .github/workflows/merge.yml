@@ -54,12 +54,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Initialize
-        uses: joinmisskey/release-actions/.github/actions/checkout-pr@main
+        uses: misskey-dev/release-manager-actions/.github/actions/checkout-pr@v2
         with:
           pr_number: ${{ inputs.pr_number }}
           user: ${{ inputs.user }}
       - name: Get target version
-        uses: joinmisskey/release-actions/.github/actions/get-target-version@main
+        uses: misskey-dev/release-manager-actions/.github/actions/get-target-version@v2
         id: v
 
       - uses: actions/create-github-app-token@v1
@@ -111,7 +111,7 @@ jobs:
 
       # バージョンをpackage.jsonに書き込み
       - name: Write version
-        uses: joinmisskey/release-actions/.github/actions/rewrite-package-json@main
+        uses: misskey-dev/release-manager-actions/.github/actions/rewrite-package-json@v2
         with:
           version: ${{ steps.v.outputs.target_version }}
           package_jsons: ${{ inputs.package_jsons_to_rewrite }}
@@ -128,7 +128,7 @@ jobs:
 
       # CHANGELOG.mdの内容を取得
       - name: Get changelog
-        uses: joinmisskey/release-actions/.github/actions/get-changelog@main
+        uses: misskey-dev/release-manager-actions/.github/actions/get-changelog@v2
         with:
           version: ${{ steps.v.outputs.target_version }}
         id: changelog

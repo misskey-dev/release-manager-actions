@@ -42,7 +42,7 @@ jobs:
           STABLE_BRANCH: ${{ vars.STABLE_BRANCH }}
 
   merge:
-    uses: joinmisskey/release-actions/.github/workflows/merge.yml@main
+    uses: misskey-dev/release-manager-actions/.github/workflows/merge.yml@v2
     needs: get-pr
     if: ${{ needs.get-pr.outputs.pr_number != '' && inputs.merge == true }}
     with:
@@ -72,7 +72,7 @@ jobs:
       RULESET_EDIT_APP_PRIVATE_KEY: ${{ secrets.RULESET_EDIT_APP_PRIVATE_KEY }}
 
   create-prerelease:
-    uses: joinmisskey/release-actions/.github/workflows/create-prerelease.yml@main
+    uses: misskey-dev/release-manager-actions/.github/workflows/create-prerelease.yml@v2
     needs: get-pr
     if: ${{ needs.get-pr.outputs.pr_number != '' && inputs.merge != true  }}
     with:
@@ -86,7 +86,7 @@ jobs:
       RELEASE_APP_PRIVATE_KEY: ${{ secrets.RELEASE_APP_PRIVATE_KEY }}
 
   create-target:
-    uses: joinmisskey/release-actions/.github/workflows/create-target.yml@main
+    uses: misskey-dev/release-manager-actions/.github/workflows/create-target.yml@v2
     needs: get-pr
     if: ${{ needs.get-pr.outputs.pr_number == '' }}
     with:
