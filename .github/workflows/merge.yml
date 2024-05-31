@@ -62,12 +62,20 @@ jobs:
         uses: joinmisskey/release-actions/.github/actions/get-target-version@main
         id: v
 
+      - uses: actions/create-github-app-token@v1
+        id: release-app-token
+        if: inputs.use_external_app_to_release
+        with:
+          app-id: ${{ secrets.RELEASE_APP_ID }}
+          private-key: ${{ secrets.RELEASE_APP_PRIVATE_KEY }}
+
       # mergeable: UNKNOWNを回避したい
       - name: 'Pre-fetch PR data'
         run: |
           gh pr view "$PR_NUMBER" --json mergeable
         env:
           PR_NUMBER: ${{ inputs.pr_number }}
+          GITHUB_TOKEN: ${{ inputs.use_external_app_to_release && steps.release-app-token.outputs.token || secrets.GITHUB_TOKEN }}
       - name: Sleep
         run: sleep 5s
 
@@ -77,6 +85,7 @@ jobs:
           echo "data=$(gh pr view "$PR_NUMBER" --json baseRefName,reviewDecision,isDraft,mergeStateStatus,statusCheckRollup,mergeable)" >> $GITHUB_OUTPUT
         env:
           PR_NUMBER: ${{ inputs.pr_number }}
+          GITHUB_TOKEN: ${{ inputs.use_external_app_to_release && steps.release-app-token.outputs.token || secrets.GITHUB_TOKEN }}
       - name: 'Check Mergeable: compare'
         uses: actions/script@v7
         env:
@@ -132,12 +141,6 @@ jobs:
           TARGET_VERSION: ${{ steps.v.outputs.target_version }}
 
       # リリースを作成
-      - uses: actions/create-github-app-token@v1
-        id: release-app-token
-        if: inputs.use_external_app_to_release
-        with:
-          app-id: ${{ secrets.RELEASE_APP_ID }}
-          private-key: ${{ secrets.RELEASE_APP_PRIVATE_KEY }}
       - name: Create release
         env:
           GITHUB_TOKEN: ${{ inputs.use_external_app_to_release && steps.release-app-token.outputs.token || secrets.GITHUB_TOKEN }}
@@ -158,6 +161,7 @@ jobs:
           retry_wait_seconds: 5
         env:
           PR_NUMBER: ${{ inputs.pr_number }}
+          GITHUB_TOKEN: ${{ inputs.use_external_app_to_release && steps.release-app-token.outputs.token || secrets.GITHUB_TOKEN }}
 
       # CHANGELOG.mdにUnreleasedのテンプレートを追加
       - name: Prepend CHANGELOG template
