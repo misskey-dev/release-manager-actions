@@ -14,7 +14,7 @@ Migration is deprecated because it is so different from v1, but if it is necessa
    In the `Install App` tab, select org or user right ⚙️ and go to the App installation management screen, where you will see `(app) is requesting an update to its permissions. [Review Request]`. Select `Review Request` and on the next screen select `Accept new permissions`.
 4. Create a ruleset to protect the stable branch according to README.md.
 5. Override the three release manager workflows.  
-   Set line 6 of `release-edit-with-push.yml` to the develop branch (the default branch in your repository).
+   Set line 6 of `release-edit-with-push.yml` to the name of the develop branch (the default branch in your repository).
 
 ## 1.2.1
 The copied actions need to be replaced like following:
