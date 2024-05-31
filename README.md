@@ -27,10 +27,14 @@ You must modify line#6 with the default (develop) branch.
 #### ⅲ. release-with-ready.yml
 Release rc when PR becomes ready for review.
 
-## If you have `on: release` workflows...
-If you have workflow(s) with `on: release`, you must create a GitHub App with following settings and set `RELEASE_APP_ID` and `RELEASE_APP_PRIVATE_KEY` as secrets.
+### 3. Create a GitHub App
+You must create a GitHub App with following settings and set `RELEASE_APP_ID` and `RELEASE_APP_PRIVATE_KEY` as secrets.
 
 Please execute following installation: https://github.com/actions/create-github-app-token/tree/v1/?tab=readme-ov-file#usage
+
+- The `Contents` permission is required for the `on: release` workflow to run via automatic release.  
+  The reason is that `on: release` workflows are not triggered for releases created with the default `GITHUB_TOKEN`.
+- The `Pull requests` permission is required to bypass the protect on the stable branch and perform PR merges.
 
 |App Settings||
 |:--|:--|
@@ -38,12 +42,29 @@ Please execute following installation: https://github.com/actions/create-github-
 |Active|disabled|
 |Repository permission||
 |Contents|Read and Write|
+|Pull requests|Read and Write|
 
 Open `Install App` tab and install to the repository or whole the user/organization.
 
 Then set `USE_RELEASE_APP` as `true` [as a repository variable](https://docs.github.com/en/actions/learn-github-actions/variables#creating-configuration-variables-for-a-repository).
 
-The reason is that `on: release` workflows are not triggered for releases created with the default `GITHUB_TOKEN`.
+### 4. Create a ruleset to protect the stable branch
+To maintain the integrity of the stable branch, it is recommended that it prohibit push by ruleset.
+
+|New Branch Ruleset||
+|:--|:--|
+|Enforcement status|Active|
+|Bypass list||
+|+ Add bypass|GitHub App you created and installed|
+|Targets|
+|Target branches|stable|
+|Branch protections||
+|Restrict creations|Enable|
+|Restrict updates|Enable|
+|Restrict deletions|Enable|
+|Require a pull request before merging|Enable|
+|Required approvals|1|
+|Block force pushes|Enable|
 
 ## Repository secrets and variables
 ### Secrets
