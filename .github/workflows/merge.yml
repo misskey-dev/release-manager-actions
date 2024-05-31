@@ -62,36 +62,6 @@ jobs:
         uses: joinmisskey/release-actions/.github/actions/get-target-version@main
         id: v
 
-      # rulesetを切り替え
-      - uses: actions/create-github-app-token@v1
-        id: app-token
-        if: vars.RULESET_ID_WITHIN_RELEASE || vars.RULESET_ID_OUT_OF_RELEASE
-        with:
-          app-id: ${{ secrets.RULESET_EDIT_APP_ID }}
-          private-key: ${{ secrets.RULESET_EDIT_APP_PRIVATE_KEY }}
-      - name: Enable the ruleset
-        uses: octokit/request-action@v2.x
-        if: steps.app-token.outputs.token && vars.RULESET_ID_OUT_OF_RELEASE
-        env:
-          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
-        with:
-          route: PUT /repos/{repository}/rulesets/{ruleset_id}
-          repository: ${{ github.repository }}
-          ruleset_id: ${{ vars.RULESET_ID_OUT_OF_RELEASE }}
-          enforcement: active
-      - name: Disable the ruleset
-        uses: octokit/request-action@v2.x
-        if: steps.app-token.outputs.token && vars.RULESET_ID_WITHIN_RELEASE
-        env:
-          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
-        with:
-          route: PUT /repos/{repository}/rulesets/{ruleset_id}
-          repository: ${{ github.repository }}
-          ruleset_id: ${{ vars.RULESET_ID_WITHIN_RELEASE }}
-          enforcement: disabled
-
       # mergeable: UNKNOWNを回避したい
       - name: 'Pre-fetch PR data'
         run: |
@@ -130,31 +100,6 @@ jobs:
               throw new Error('Not all status checks are success');
             }
 
-      #region if failed
-      - name: Re-enable the ruleset
-        uses: octokit/request-action@v2.x
-        if: failure() && steps.app-token.outputs.token && vars.RULESET_ID_WITHIN_RELEASE
-        env:
-          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
-        with:
-          route: PUT /repos/{repository}/rulesets/{ruleset_id}
-          repository: ${{ github.repository }}
-          ruleset_id: ${{ vars.RULESET_ID_WITHIN_RELEASE }}
-          enforcement: active
-      - name: Re-disable the ruleset
-        uses: octokit/request-action@v2.x
-        if: failure() && steps.app-token.outputs.token && vars.RULESET_ID_OUT_OF_RELEASE
-        env:
-          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
-        with:
-          route: PUT /repos/{repository}/rulesets/{ruleset_id}
-          repository: ${{ github.repository }}
-          ruleset_id: ${{ vars.RULESET_ID_OUT_OF_RELEASE }}
-          enforcement: disabled
-      #endregion
-
       # バージョンをpackage.jsonに書き込み
       - name: Write version
         uses: joinmisskey/release-actions/.github/actions/rewrite-package-json@main
@@ -167,7 +112,7 @@ jobs:
         run: |
           if [ -n "$(git status --porcelain)" ]; then
             git commit -am "[skip ci] Release: $TARGET_VERSION"
-            git push origin "HEAD:release/$TARGET_VERSION"
+            git push
           fi
         env:
           TARGET_VERSION: ${{ steps.v.outputs.target_version }}
@@ -214,18 +159,7 @@ jobs:
         env:
           PR_NUMBER: ${{ inputs.pr_number }}
 
-      # Declear base branch
-      - name: Declear base branch
-        id: declear-base-branch
-        env:
-          pr_data: ${{ steps.pr-data.outputs.data }}
-        run: |
-          echo "base_branch=$(echo $pr_data | jq -r '.baseRefName')" >> $GITHUB_OUTPUT
-
       # CHANGELOG.mdにUnreleasedのテンプレートを追加
-      - uses: actions/checkout@v4
-        with:
-          ref: ${{ steps.declear-base-branch.outputs.base_branch }}
       - name: Prepend CHANGELOG template
         env:
           CHANGES_TEMPLATE: ${{ inputs.changes_template }}
@@ -233,6 +167,4 @@ jobs:
       - name: Update CHANGELOG.md (prepend template)
         run: |
           git commit -am "[skip ci] Update CHANGELOG.md (prepend template)"
-          git push origin "HEAD:$BASE_BRANCH"
-        env:
-          BASE_BRANCH: ${{ steps.declear-base-branch.outputs.base_branch }}
+          git push

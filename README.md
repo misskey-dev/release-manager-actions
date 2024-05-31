@@ -22,6 +22,8 @@ The core workflow that is manually triggered. It has three functions:
 #### ⅱ. release-edit-with-push.yml
 This workflow changes the description of the PR when CHANGELOG.md is changed.
 
+You must modify line#6 with the default (develop) branch.
+
 #### ⅲ. release-with-ready.yml
 Release rc when PR becomes ready for review.
 

@@ -88,11 +88,11 @@ jobs:
           version: ${{ steps.release_version.outputs.result }}
           package_jsons: ${{ inputs.package_jsons_to_rewrite }}
           indent: ${{ inputs.indent }}
-      # release/ブランチにpush、タグを作成
+      # push、タグを作成
       - name: Commit version
         run: |
           git commit -am "Bump version to $VERSION_NAME"
-          git push origin "HEAD:release/$TARGET_VERSION"
+          git push
           git tag "$VERSION_NAME"
           git push origin "$VERSION_NAME"
         env:

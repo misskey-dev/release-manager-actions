@@ -13,27 +13,27 @@ permissions:
   pull-requests: write
 
 jobs:
-  check:
+  get-pr:
     runs-on: ubuntu-latest
     outputs:
-      ref: ${{ steps.get_pr.outputs.ref }}
+      pr_number: ${{ steps.get_pr.outputs.pr_number }}
     steps:
       - uses: actions/checkout@v4
-      # PR情報を取得
-      - name: Get PR
+      # headが$GITHUB_REF_NAMEかつopenのPRを1つ取得
+      - name: Get PRs
         run: |
-          pr_json=$(gh pr view "$PR_NUMBER" --json isDraft,headRefName)
-          echo "ref=$(echo $pr_json | jq -r '.headRefName')" >> $GITHUB_OUTPUT
+          echo "pr_number=$(gh pr list --limit 1 --search "head:$GITHUB_REF_NAME base:$STABLE_BRANCH is:open" --json number  --jq '.[] | .number')" >> $GITHUB_OUTPUT
         id: get_pr
         env:
-          PR_NUMBER: ${{ github.event.pull_request.number }}
+          STABLE_BRANCH: ${{ vars.STABLE_BRANCH }}
+
   release:
     uses: joinmisskey/release-actions/.github/workflows/create-prerelease.yml@main
-    needs: check
-    if: startsWith(needs.check.outputs.ref, 'release/')
+    needs: get-pr
+    if: ${{ github.event.pull_request.number == needs.get-pr.outputs.pr_number }}
     with:
       pr_number: ${{ github.event.pull_request.number }}
-      user: 'LuckyBeast'
+      user: 'github-actions[bot]'
       package_jsons_to_rewrite: ${{ vars.PACKAGE_JSONS_TO_REWRITE }}
       use_external_app_to_release: ${{ vars.USE_RELEASE_APP == 'true' }}
       indent: ${{ vars.INDENT }}
