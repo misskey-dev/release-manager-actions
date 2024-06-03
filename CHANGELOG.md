@@ -1,5 +1,7 @@
 CHANGELOG
 =======================================
+## 2.0.1
+- Removed unnecessary secrets (RULESET_...)
 
 ## 2.0.0
 Release Manager Actions v2 is a release support workflow based on the develop-stable branches system.
