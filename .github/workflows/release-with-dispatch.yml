@@ -68,8 +68,6 @@ jobs:
     secrets:
       RELEASE_APP_ID: ${{ secrets.RELEASE_APP_ID }}
       RELEASE_APP_PRIVATE_KEY: ${{ secrets.RELEASE_APP_PRIVATE_KEY }}
-      RULESET_EDIT_APP_ID: ${{ secrets.RULESET_EDIT_APP_ID }}
-      RULESET_EDIT_APP_PRIVATE_KEY: ${{ secrets.RULESET_EDIT_APP_PRIVATE_KEY }}
 
   create-prerelease:
     uses: misskey-dev/release-manager-actions/.github/workflows/create-prerelease.yml@v2
@@ -127,5 +125,3 @@ jobs:
     secrets:
       RELEASE_APP_ID: ${{ secrets.RELEASE_APP_ID }}
       RELEASE_APP_PRIVATE_KEY: ${{ secrets.RELEASE_APP_PRIVATE_KEY }}
-      RULESET_EDIT_APP_ID: ${{ secrets.RULESET_EDIT_APP_ID }}
-      RULESET_EDIT_APP_PRIVATE_KEY: ${{ secrets.RULESET_EDIT_APP_PRIVATE_KEY }}
