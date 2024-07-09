@@ -76,14 +76,14 @@ jobs:
           TARGET_VERSION: ${{ steps.target_version.outputs.result }}
       # バージョンをpackage.jsonに書き込み
       - name: Write version
-        uses: joinmisskey/release-actions/.github/actions/rewrite-package-json@main
+        uses: misskey-dev/release-manager-actions/.github/actions/rewrite-package-json@v2
         with:
           version: ${{ steps.release_version.outputs.result }}
           package_jsons: ${{ inputs.package_jsons_to_rewrite }}
           indent: ${{ inputs.indent }}
       # CHANGELOG.mdのUnreleasedの内容を取得
       - name: Get changelog
-        uses: joinmisskey/release-actions/.github/actions/get-changelog@main
+        uses: misskey-dev/release-manager-actions/.github/actions/get-changelog@v2
         with:
           version: Unreleased
         id: changelog
