@@ -69,9 +69,9 @@ To maintain the integrity of the stable branch, it is recommended that it prohib
 ## Repository secrets and variables
 ### Secrets
 <dl>
-<dt><code>RELEASE_APP_ID</code> <i>(optional)</i><</dt>
+<dt><code>RELEASE_APP_ID</code> <i>(optional)</i></dt>
 <dd>See "If you have `on: release` workflows..."</dd>
-<dt><code>RELEASE_APP_PRIVATE_KEY</code> <i>(optional)</i><</dt>
+<dt><code>RELEASE_APP_PRIVATE_KEY</code> <i>(optional)</i></dt>
 <dd>PEM cert. See "If you have `on: release` workflows..."</dd>
 </dl>
 

@@ -1,5 +1,8 @@
 CHANGELOG
 =======================================
+## 2.0.2
+- Fixed release-edit-with-push.yml failing when there is no release PR
+
 ## 2.0.1
 - Removed unnecessary secrets (RULESET_...)
 
