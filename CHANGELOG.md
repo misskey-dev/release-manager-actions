@@ -1,7 +1,7 @@
 CHANGELOG
 =======================================
 
-## Unreleased
+## 2024.7.0
 
 ### General
 - Fix aaa
