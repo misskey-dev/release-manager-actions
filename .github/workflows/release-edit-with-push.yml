@@ -27,30 +27,20 @@ jobs:
         id: get_pr
         env:
           STABLE_BRANCH: ${{ vars.STABLE_BRANCH }}
-      - name: PR existance check
-        run: |
-          echo "$PR_NUMBER"
-        env:
-          PR_NUMBER: ${{ steps.get_pr.outputs.pr_number }}
-      - name: PR existance check
-        if: steps.get_pr.outputs.pr_number == ''
-        run: |
-          echo "PR Number not found. exit."
-          exit 1;
       - name: Get target version
-        if: success()
+        if: steps.get_pr.outputs.pr_number != ''
         uses: joinmisskey/release-actions/.github/actions/get-target-version@main
         id: v
       # CHANGELOG.mdの内容を取得
       - name: Get changelog
-        if: success()
+        if: steps.get_pr.outputs.pr_number != ''
         uses: joinmisskey/release-actions/.github/actions/get-changelog@main
         with:
           version: ${{ steps.v.outputs.target_version }}
         id: changelog
       # PRのnotesを更新
       - name: Update PR
-        if: success()
+        if: steps.get_pr.outputs.pr_number != ''
         run: |
           gh pr edit "$PR_NUMBER" --body "$CHANGELOG"
         env:
