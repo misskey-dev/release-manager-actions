@@ -4,6 +4,11 @@ GitHub Actions workflows for release management of the repository.
 ## Flow
 ![](flow.png)
 
+Changes since this image was created:
+- We changed prerelease channel for draft pr from `beta` to `alpha`.
+- We changed prerelease channel for ready pr from `rc` to `beta` and `rc`.
+  - We can change `beta` to `rc` by enabling `Start Release Candidate` in dispatch event.
+
 ## Installation
 ### 1. Variable(s) to set
 - Make the stable branch and set the name to `STABLE_BRANCH`
@@ -15,9 +20,10 @@ Copy and use these workflows.
 #### ⅰ. release-with-dispatch.yml (Release Manager [Dispatch])
 The core workflow that is manually triggered. It has three functions:
 
-1. Prepare release - create PR and beta.0 tag
+1. Prepare release - create PR and alpha.0 tag
 2. Issue a pre-release version during the release process
-3. Issue a stable release and merge PR, when you check `MERGE RELEASE BRANCH TO MAIN`
+3. Issue a release candidate, when you check `Start Release Candidate`
+4. Issue a stable release and merge PR, when you check `MERGE RELEASE BRANCH TO MAIN`
 
 #### ⅱ. release-edit-with-push.yml
 This workflow changes the description of the PR when CHANGELOG.md is changed.
