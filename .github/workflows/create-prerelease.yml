@@ -22,6 +22,17 @@ on:
         type: string
         description: '`tab` or number of spaces'
         default: tab
+      draft_prerelease_channel:
+        type: string
+        description: 'Prerelease channel for draft PR'
+        default: 'beta'
+      ready_start_prerelease_channel:
+        type: string
+        description: 'Initial prerelease channel for ready for review PR'
+        default: 'rc'
+      prerelease_channel:
+        type: string
+        description: 'Prerelease channel for new release'
     secrets:
       RELEASE_APP_ID:
         description: 'App ID for app to create release'
@@ -59,25 +70,44 @@ jobs:
         env:
           CURRENT_VERSION: ${{ steps.v.outputs.current_version }}
           pr_is_draft: ${{ steps.get_pr.outputs.pr_is_draft }}
+          prerelease_channel: ${{ inputs.prerelease_channel }}
+          draft_prerelease_channel: ${{ inputs.draft_prerelease_channel }}
+          ready_start_prerelease_channel: ${{ inputs.ready_start_prerelease_channel }}
         with:
           script: |
-            const [major, minor, _patch, _pre] = process.env.CURRENT_VERSION.split('.');
+            const current_version = process.env.CURRENT_VERSION;
+            const prerelease_channel = process.env.prerelease_channel;
+            const draft_prerelease_channel = process.env.draft_prerelease_channel;
+            const ready_start_prerelease_channel = process.env.ready_start_prerelease_channel;
+            const is_draft = process.env.pr_is_draft == 'true';
+
+            const [main, prerelease] = current_version.split('-');
+            const [major, minor, patch] = main.split('.');
+            const [preChannel, _pre] = prerelease.split('.');
             const pre = Number(_pre);
             if (Number.isNaN(pre)) {
-              console.error('Invalid pre version', process.env.CURRENT_VERSION, major, minor, _patch);
+              console.error('Invalid pre version', current_version, major, minor, preChannel, _pre);
               throw new Error('Invalid pre version');
             }
 
-            if (process.env.pr_is_draft == 'true') {
-              if (_patch.endsWith('beta')) {
-                return `${major}.${minor}.${_patch}.${pre + 1}`;
-              }
-              return `${major}.${minor}.${_patch.split('-')[0]}-beta.${pre + 1}`;
+            if (prerelease_channel && is_draft) {
+              throw new Error('Cannot specify prerelease_channel for draft PR');
             }
-            if (_patch.endsWith('rc')) {
-              return `${major}.${minor}.${_patch}.${pre + 1}`;
+
+            if (is_draft) {
+              // if draft PR, force to draft prerelease channel
+              return `${major}.${minor}.${patch}-${draft_prerelease_channel}.${pre + 1}`;
             }
-            return `${major}.${minor}.${_patch.split('-')[0]}-rc.${pre + 1}`;
+            if (prerelease_channel) {
+              // if specified, use it
+              return `${major}.${minor}.${patch}-${prerelease_channel}.${pre + 1}`;
+            }
+            if (preChannel === draft_prerelease_channel) {
+              // if channel is prerelease, we should change to ready_start_prerelease_channel
+              return `${major}.${minor}.${patch}-${ready_start_prerelease_channel}.${pre + 1}`;
+            }
+            // otherwise, use previous channel
+            return `${major}.${minor}.${patch}-${preChannel}.${pre + 1}`;
 
           result-encoding: string
         id: release_version

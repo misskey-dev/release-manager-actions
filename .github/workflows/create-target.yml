@@ -28,6 +28,10 @@ on:
         type: string
         description: 'Branch to merge the release branch into'
         default: 'stable'
+      draft_prerelease_channel:
+        type: string
+        description: 'Prerelease channel for draft PR'
+        default: 'beta'
     secrets:
       RELEASE_APP_ID:
         description: 'App ID for app to create release'
@@ -70,10 +74,11 @@ jobs:
           result-encoding: string
         id: target_version
       - name: beta 0
-        run: echo "result=$TARGET_VERSION-beta.0" >> $GITHUB_OUTPUT
+        run: echo "result=$TARGET_VERSION-$PRERELEASE_CHANNEL.0" >> $GITHUB_OUTPUT
         id: release_version
         env:
           TARGET_VERSION: ${{ steps.target_version.outputs.result }}
+          PRERELEASE_CHANNEL: ${{ inputs.draft_prerelease_channel }}
       # バージョンをpackage.jsonに書き込み
       - name: Write version
         uses: misskey-dev/release-manager-actions/.github/actions/rewrite-package-json@v2
