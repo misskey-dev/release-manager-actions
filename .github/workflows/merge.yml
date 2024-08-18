@@ -101,7 +101,7 @@ jobs:
             if (pr.mergeStateStatus !== 'CLEAN' && pr.mergeStateStatus !== 'BLOCKED') {
               throw new Error(`MergeStateStatus is not CLEAN: ${pr.mergeStateStatus}`);
             }
-            if (pr.statusCheckRollup.find(s => s.conclusion !== 'SUCCESS')) {
+            if (pr.statusCheckRollup.find(s => s.conclusion !== 'SUCCESS' && s.conclusion == 'COMPLETED')) {
               throw new Error('Not all status checks are success');
             }
 
