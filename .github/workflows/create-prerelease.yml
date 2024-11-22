@@ -30,6 +30,10 @@ on:
         type: string
         description: 'Initial prerelease channel for ready for review PR'
         default: 'rc'
+      reset_number_on_channel_change:
+        type: boolean
+        description: 'Reset pre number when channel changes'
+        default: false
       prerelease_channel:
         type: string
         description: 'Prerelease channel for new release'
@@ -73,12 +77,14 @@ jobs:
           prerelease_channel: ${{ inputs.prerelease_channel }}
           draft_prerelease_channel: ${{ inputs.draft_prerelease_channel }}
           ready_start_prerelease_channel: ${{ inputs.ready_start_prerelease_channel }}
+          reset_number_on_channel_change: ${{ inputs.reset_number_on_channel_change }}
         with:
           script: |
             const current_version = process.env.CURRENT_VERSION;
             const prerelease_channel = process.env.prerelease_channel;
             const draft_prerelease_channel = process.env.draft_prerelease_channel;
             const ready_start_prerelease_channel = process.env.ready_start_prerelease_channel;
+            const reset_number_on_channel_change = process.env.reset_number_on_channel_change == 'true';
             const is_draft = process.env.pr_is_draft == 'true';
 
             const [main, prerelease] = current_version.split('-');
@@ -94,20 +100,25 @@ jobs:
               throw new Error('Cannot specify prerelease_channel for draft PR');
             }
 
+            let nextPre = pre + 1;
+
             if (is_draft) {
               // if draft PR, force to draft prerelease channel
-              return `${major}.${minor}.${patch}-${draft_prerelease_channel}.${pre + 1}`;
+              if (reset_number_on_channel_change && prerelease_channel != draft_prerelease_channel) throw new Error("The PR was Ready for review but now it's draft, which is unsupported with reset number on channel change.");
+              return `${major}.${minor}.${patch}-${draft_prerelease_channel}.${nextPre}`;
             }
             if (prerelease_channel) {
               // if specified, use it
-              return `${major}.${minor}.${patch}-${prerelease_channel}.${pre + 1}`;
+              if (reset_number_on_channel_change && preChannel != prerelease_channel) nextPre = 0;
+              return `${major}.${minor}.${patch}-${prerelease_channel}.${nextPre}`;
             }
             if (preChannel === draft_prerelease_channel) {
               // if channel is prerelease, we should change to ready_start_prerelease_channel
-              return `${major}.${minor}.${patch}-${ready_start_prerelease_channel}.${pre + 1}`;
+              if (reset_number_on_channel_change) nextPre = 0;
+              return `${major}.${minor}.${patch}-${ready_start_prerelease_channel}.${nextPre}`;
             }
             // otherwise, use previous channel
-            return `${major}.${minor}.${patch}-${preChannel}.${pre + 1}`;
+            return `${major}.${minor}.${patch}-${preChannel}.${nextPre}`;
 
           result-encoding: string
         id: release_version
