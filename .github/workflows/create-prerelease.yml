@@ -104,7 +104,7 @@ jobs:
 
             if (is_draft) {
               // if draft PR, force to draft prerelease channel
-              if (reset_number_on_channel_change && prerelease_channel != draft_prerelease_channel) throw new Error("The PR was Ready for review but now it's draft, which is unsupported with reset number on channel change.");
+              if (reset_number_on_channel_change && preChannel != draft_prerelease_channel) throw new Error("The PR was Ready for review but now it's draft, which is unsupported with reset number on channel change.");
               return `${major}.${minor}.${patch}-${draft_prerelease_channel}.${nextPre}`;
             }
             if (prerelease_channel) {
