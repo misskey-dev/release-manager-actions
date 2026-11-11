@@ -98,11 +98,18 @@ jobs:
             if (pr.mergeable !== 'MERGEABLE') {
               throw new Error(`Not mergeable: ${pr.mergeable}`);
             }
-            if (pr.mergeStateStatus !== 'CLEAN' && pr.mergeStateStatus !== 'BLOCKED') {
-              throw new Error(`MergeStateStatus is not CLEAN: ${pr.mergeStateStatus}`);
+            // BLOCKED: Means blocked by branch protection. This will be bypassed
+            if (!['CLEAN', 'BLOCKED'].includes(pr.mergeStateStatus)) {
+              throw new Error(`MergeStateStatus is not mergeable: ${pr.mergeStateStatus}`);
             }
-            if (pr.statusCheckRollup.find(s => s.conclusion !== 'SUCCESS' && s.conclusion !== 'COMPLETED' && s.state !== 'SUCCESS' && s.state !== 'COMPLETED')) {
-              throw new Error('Not all status checks are success');
+
+            const notReadyChecks = (pr.statusCheckRollup ?? []).filter(s => !['SUCCESS', 'SKIPPED'].includes(s.conclusion) && !['SUCCESS'].includes(s.state));
+
+            if (notReadyChecks.length > 0) {
+              let message = 'Some checks are not passed yet.';
+              for (const s of notReadyChecks) message += `\n- ${s.context ?? `${s.workflowName} / ${s.name}`}: ${s.conclusion || (s.status ?? s.state)}`;
+              core.error(message);
+              throw new Error(message);
             }
 
       # バージョンをpackage.jsonに書き込み
