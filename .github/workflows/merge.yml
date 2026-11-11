@@ -92,7 +92,7 @@ jobs:
                         __typename
                         ... on CheckRun {
                           name status conclusion startedAt
-                          checkSuite { workflowRun { databaseId workflow { databaseId name } } }
+                          checkSuite { workflowRun { workflow { databaseId name } } }
                         }
                         ... on StatusContext { context state createdAt }
                       }
@@ -123,10 +123,8 @@ jobs:
               throw new Error(`Not mergeable: ${pr.mergeable}`);
             }
             // BLOCKED: --admin でマージするので、ブランチ保護による BLOCKED は許容する
-            // UNSTABLE: 必須でないチェックの失敗/実行中を表す。CI の判定は下の statusCheckRollup で厳密に行う
-            //           (このワークフロー自身の実行中ジョブで UNSTABLE になる場合もあるため、ここでは弾かない)
             // HAS_HOOKS: pre-receive hook があるだけでマージ可能
-            const allowedMergeStateStatuses = ['CLEAN', 'BLOCKED', 'UNSTABLE', 'HAS_HOOKS'];
+            const allowedMergeStateStatuses = ['CLEAN', 'BLOCKED', 'HAS_HOOKS'];
             if (!allowedMergeStateStatuses.includes(pr.mergeStateStatus)) {
               throw new Error(`MergeStateStatus is not mergeable: ${pr.mergeStateStatus}`);
             }
@@ -142,15 +140,15 @@ jobs:
             }
             const checks = rollup.nodes;
 
-            const workflowRun = (c) => c.checkSuite?.workflowRun;
+            const workflow = (c) => c.checkSuite?.workflowRun?.workflow;
             const checkName = (c) => c.__typename === 'StatusContext'
               ? c.context
-              : [workflowRun(c)?.workflow?.name, c.name].filter(Boolean).join(' / ');
+              : [workflow(c)?.name, c.name].filter(Boolean).join(' / ');
             // 同一チェックとみなすキー。CheckRun はワークフロー ID (表示名ではなく databaseId) + ジョブ名で識別する。
             // ワークフロー ID が取れない (Actions 以外のチェック等で再実行かどうか判断できない) ものは null を返し、重複排除しない
             const dedupeKey = (c) => {
               if (c.__typename === 'StatusContext') return `StatusContext:${c.context}`;
-              const workflowId = workflowRun(c)?.workflow?.databaseId;
+              const workflowId = workflow(c)?.databaseId;
               return workflowId != null ? `CheckRun:${workflowId}:${c.name}` : null;
             };
             // 未開始のものは startedAt が null になるが、既存のものより新しいとみなす
@@ -171,9 +169,7 @@ jobs:
               const prev = latest.get(key);
               if (!prev || startedAt(c) >= startedAt(prev)) latest.set(key, c);
             }
-
-            // このワークフロー実行自身のジョブ (実行中の自ジョブや、if で SKIPPED になった兄弟ジョブ) は除外する
-            const targets = [...latest.values(), ...unkeyed].filter(c => workflowRun(c)?.databaseId !== context.runId);
+            const targets = [...latest.values(), ...unkeyed];
 
             const pending = [];
             const failed = [];
