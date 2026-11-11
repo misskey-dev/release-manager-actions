@@ -78,7 +78,30 @@ jobs:
       - name: 'Fetch PR data'
         id: pr-data
         run: |
-          echo "data=$(gh pr view "$PR_NUMBER" --json baseRefName,reviewDecision,isDraft,mergeStateStatus,statusCheckRollup,mergeable)" >> $GITHUB_OUTPUT
+          echo "data=$(gh pr view "$PR_NUMBER" --json baseRefName,reviewDecision,isDraft,mergeStateStatus,mergeable)" >> $GITHUB_OUTPUT
+          # gh pr view の statusCheckRollup にはワークフローを一意に識別する情報が無いので、GraphQL で直接取得する
+          checks=$(gh api graphql \
+            -F owner="${GITHUB_REPOSITORY%/*}" -F repo="${GITHUB_REPOSITORY#*/}" -F number="$PR_NUMBER" \
+            -f query='
+              query($owner: String!, $repo: String!, $number: Int!) {
+                repository(owner: $owner, name: $repo) {
+                  pullRequest(number: $number) {
+                    commits(last: 1) { nodes { commit { statusCheckRollup { contexts(first: 100) {
+                      pageInfo { hasNextPage }
+                      nodes {
+                        __typename
+                        ... on CheckRun {
+                          name status conclusion startedAt
+                          checkSuite { workflowRun { databaseId workflow { databaseId name } } }
+                        }
+                        ... on StatusContext { context state createdAt }
+                      }
+                    } } } } }
+                  }
+                }
+              }' \
+            --jq '.data.repository.pullRequest.commits.nodes[0].commit.statusCheckRollup.contexts // {"pageInfo":{"hasNextPage":false},"nodes":[]}' | jq -c .)
+          echo "checks=$checks" >> $GITHUB_OUTPUT
         env:
           PR_NUMBER: ${{ inputs.pr_number }}
           GITHUB_TOKEN: ${{ inputs.use_external_app_to_release && steps.release-app-token.outputs.token || secrets.GITHUB_TOKEN }}
@@ -86,6 +109,7 @@ jobs:
         uses: actions/script@v7
         env:
           pr_data: ${{ steps.pr-data.outputs.data }}
+          pr_checks: ${{ steps.pr-data.outputs.checks }}
         with:
           script: |
             const pr = JSON.parse(process.env.pr_data);
@@ -112,28 +136,44 @@ jobs:
             // - CheckRun: status (QUEUED, IN_PROGRESS, COMPLETED, WAITING, PENDING, REQUESTED)
             //             conclusion (SUCCESS, NEUTRAL, SKIPPED, FAILURE, CANCELLED, TIMED_OUT, ACTION_REQUIRED, STARTUP_FAILURE, STALE)
             // - StatusContext: state (SUCCESS, PENDING, EXPECTED, ERROR, FAILURE)
-            const checks = pr.statusCheckRollup ?? [];
+            const rollup = JSON.parse(process.env.pr_checks);
+            if (rollup.pageInfo.hasNextPage) {
+              throw new Error('Too many status checks (> 100) to verify');
+            }
+            const checks = rollup.nodes;
 
+            const workflowRun = (c) => c.checkSuite?.workflowRun;
             const checkName = (c) => c.__typename === 'StatusContext'
               ? c.context
-              : [c.workflowName, c.name].filter(Boolean).join(' / ');
-            // 未開始のものは startedAt がゼロ値になるが、既存のものより新しいとみなす
+              : [workflowRun(c)?.workflow?.name, c.name].filter(Boolean).join(' / ');
+            // 同一チェックとみなすキー。CheckRun はワークフロー ID (表示名ではなく databaseId) + ジョブ名で識別する。
+            // ワークフロー ID が取れない (Actions 以外のチェック等で再実行かどうか判断できない) ものは null を返し、重複排除しない
+            const dedupeKey = (c) => {
+              if (c.__typename === 'StatusContext') return `StatusContext:${c.context}`;
+              const workflowId = workflowRun(c)?.workflow?.databaseId;
+              return workflowId != null ? `CheckRun:${workflowId}:${c.name}` : null;
+            };
+            // 未開始のものは startedAt が null になるが、既存のものより新しいとみなす
             const startedAt = (c) => {
-              const t = Date.parse(c.startedAt);
-              return Number.isNaN(t) || t <= 0 ? Infinity : t;
+              const t = Date.parse(c.__typename === 'StatusContext' ? c.createdAt : c.startedAt);
+              return Number.isNaN(t) ? Infinity : t;
             };
 
             // 同じチェックの再実行や、同じコミットに対する複数回の実行は最新のものだけを評価する
             const latest = new Map();
+            const unkeyed = [];
             for (const c of checks) {
-              const key = `${c.__typename}:${checkName(c)}`;
+              const key = dedupeKey(c);
+              if (key == null) {
+                unkeyed.push(c);
+                continue;
+              }
               const prev = latest.get(key);
               if (!prev || startedAt(c) >= startedAt(prev)) latest.set(key, c);
             }
 
             // このワークフロー実行自身のジョブ (実行中の自ジョブや、if で SKIPPED になった兄弟ジョブ) は除外する
-            const ownRunPath = `/actions/runs/${context.runId}/`;
-            const targets = [...latest.values()].filter(c => !(c.detailsUrl ?? '').includes(ownRunPath));
+            const targets = [...latest.values(), ...unkeyed].filter(c => workflowRun(c)?.databaseId !== context.runId);
 
             const pending = [];
             const failed = [];
