@@ -98,12 +98,66 @@ jobs:
             if (pr.mergeable !== 'MERGEABLE') {
               throw new Error(`Not mergeable: ${pr.mergeable}`);
             }
-            if (pr.mergeStateStatus !== 'CLEAN' && pr.mergeStateStatus !== 'BLOCKED') {
-              throw new Error(`MergeStateStatus is not CLEAN: ${pr.mergeStateStatus}`);
+            // BLOCKED: --admin でマージするので、ブランチ保護による BLOCKED は許容する
+            // UNSTABLE: 必須でないチェックの失敗/実行中を表す。CI の判定は下の statusCheckRollup で厳密に行う
+            //           (このワークフロー自身の実行中ジョブで UNSTABLE になる場合もあるため、ここでは弾かない)
+            // HAS_HOOKS: pre-receive hook があるだけでマージ可能
+            const allowedMergeStateStatuses = ['CLEAN', 'BLOCKED', 'UNSTABLE', 'HAS_HOOKS'];
+            if (!allowedMergeStateStatuses.includes(pr.mergeStateStatus)) {
+              throw new Error(`MergeStateStatus is not mergeable: ${pr.mergeStateStatus}`);
             }
-            if (pr.statusCheckRollup.find(s => s.conclusion !== 'SUCCESS' && s.conclusion !== 'COMPLETED' && s.state !== 'SUCCESS' && s.state !== 'COMPLETED')) {
-              throw new Error('Not all status checks are success');
+
+            // statusCheckRollup は CheckRun と StatusContext の union
+            // https://docs.github.com/en/graphql/reference/unions#statuscheckrollupcontext
+            // - CheckRun: status (QUEUED, IN_PROGRESS, COMPLETED, WAITING, PENDING, REQUESTED)
+            //             conclusion (SUCCESS, NEUTRAL, SKIPPED, FAILURE, CANCELLED, TIMED_OUT, ACTION_REQUIRED, STARTUP_FAILURE, STALE)
+            // - StatusContext: state (SUCCESS, PENDING, EXPECTED, ERROR, FAILURE)
+            const checks = pr.statusCheckRollup ?? [];
+
+            const checkName = (c) => c.__typename === 'StatusContext'
+              ? c.context
+              : [c.workflowName, c.name].filter(Boolean).join(' / ');
+            // 未開始のものは startedAt がゼロ値になるが、既存のものより新しいとみなす
+            const startedAt = (c) => {
+              const t = Date.parse(c.startedAt);
+              return Number.isNaN(t) || t <= 0 ? Infinity : t;
+            };
+
+            // 同じチェックの再実行や、同じコミットに対する複数回の実行は最新のものだけを評価する
+            const latest = new Map();
+            for (const c of checks) {
+              const key = `${c.__typename}:${checkName(c)}`;
+              const prev = latest.get(key);
+              if (!prev || startedAt(c) >= startedAt(prev)) latest.set(key, c);
             }
+
+            // このワークフロー実行自身のジョブ (実行中の自ジョブや、if で SKIPPED になった兄弟ジョブ) は除外する
+            const ownRunPath = `/actions/runs/${context.runId}/`;
+            const targets = [...latest.values()].filter(c => !(c.detailsUrl ?? '').includes(ownRunPath));
+
+            const pending = [];
+            const failed = [];
+            for (const c of targets) {
+              if (c.__typename === 'StatusContext') {
+                if (c.state === 'SUCCESS') continue;
+                if (c.state === 'PENDING' || c.state === 'EXPECTED') pending.push(c);
+                else failed.push(c);
+              } else {
+                if (c.status !== 'COMPLETED') pending.push(c);
+                else if (['SUCCESS', 'NEUTRAL', 'SKIPPED'].includes(c.conclusion)) continue;
+                else failed.push(c);
+              }
+            }
+
+            const describe = (c) => `- ${checkName(c)}: ${c.__typename === 'StatusContext' ? c.state : (c.status === 'COMPLETED' ? c.conclusion : c.status)}`;
+            if (failed.length > 0 || pending.length > 0) {
+              const lines = [];
+              if (failed.length > 0) lines.push('Failed status checks:', ...failed.map(describe));
+              if (pending.length > 0) lines.push('Pending status checks:', ...pending.map(describe));
+              core.error(lines.join('\n'));
+              throw new Error(`Not all status checks are passed (failed: ${failed.length}, pending: ${pending.length})`);
+            }
+            core.info(`All ${targets.length} status checks are passed`);
 
       # バージョンをpackage.jsonに書き込み
       - name: Write version
