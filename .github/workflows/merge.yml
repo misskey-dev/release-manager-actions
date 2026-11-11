@@ -107,7 +107,7 @@ jobs:
 
             if (notReadyChecks.length > 0) {
               let message = 'Some checks are not passed yet.';
-              for (const s of notReadyChecks) message += `\n- ${s.context ?? `${s.workflowName} / ${s.name}`}: ${s.conclusion ?? s.status ?? s.state}`;
+              for (const s of notReadyChecks) message += `\n- ${s.context ?? `${s.workflowName} / ${s.name}`}: ${s.conclusion || (s.status ?? s.state)}`;
               core.error(message);
               throw new Error(message);
             }
