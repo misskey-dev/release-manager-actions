@@ -98,10 +98,11 @@ jobs:
             if (pr.mergeable !== 'MERGEABLE') {
               throw new Error(`Not mergeable: ${pr.mergeable}`);
             }
-            if (pr.mergeStateStatus !== 'CLEAN' && pr.mergeStateStatus !== 'BLOCKED') {
-              throw new Error(`MergeStateStatus is not CLEAN: ${pr.mergeStateStatus}`);
+            // BLOCKED: Means blocked by branch protection. This will be bypassed
+            if (!['CLEAN', 'BLOCKED'].includes(pr.mergeStateStatus)) {
+              throw new Error(`MergeStateStatus is not mergeable: ${pr.mergeStateStatus}`);
             }
-            if (pr.statusCheckRollup.find(s => s.conclusion !== 'SUCCESS' && s.conclusion !== 'SKIPPED' && s.conclusion !== 'COMPLETED' && s.state !== 'SUCCESS' && s.state !== 'COMPLETED')) {
+            if (pr.statusCheckRollup.find(s => !['SUCCESS', 'SKIPPED', 'COMPLETED'].includes(s.conclusion) && !['SUCCESS', 'COMPLETED'].includes(s.state))) {
               throw new Error('Not all status checks are success');
             }
 
